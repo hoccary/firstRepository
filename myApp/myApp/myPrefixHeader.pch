@@ -1,0 +1,15 @@
+//
+//  myPrefixHeader.pch
+//  myApp
+//
+//  Created by 张东伟 on 17/8/25.
+//  Copyright © 2017年 张东伟. All rights reserved.
+//
+
+#ifndef myPrefixHeader_pch
+#define myPrefixHeader_pch
+//#improt "AFNetworking.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "AFNetworking.h"
+#endif /* myPrefixHeader_pch */
