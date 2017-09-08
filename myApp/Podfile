@@ -1,4 +1,8 @@
-    platform :ios, '7.0'
-    pod 'AFNetworking', '~> 2.5'
-
-
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+target 'myApp' do
+pod 'AFNetworking', '~> 3.0'
+pod 'pop', '~> 1.0'
+pod 'FlyImage', '~>1.0'
+pod 'YYModel'
+end

@@ -7,18 +7,41 @@
 //
 
 #import "NetworkTool.h"
-static NetworkTool *_networkTool = nil;
+
+
 @implementation NetworkTool
-+ (instancetype)share{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _networkTool = [[self alloc] init];
-    });
-    return _networkTool;
+
+//单例化
+SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkTool)
+
+- (void)GetFromUrl:(NSString*)URLString
+         URLparams:(NSDictionary*)params
+           success:(void(^)(id responseObject))successBlock
+              fail:(void(^)(NSError *error))failBlock{
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:params error:nil];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            failBlock(error);
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+            successBlock(responseObject);
+        }
+    }];
+    
+    [dataTask resume];
 }
 
 
-- (void)downloadFromUrl:(NSString*)serviceURL filePath:(NSString*)filePath{
+- (void)downloadFromUrl:(NSString*)serviceURL
+               filePath:(NSString*)downloadedPath
+                success:(void(^)(NSString *downloadedPath))successBlock
+                   fail:(void(^)(NSError *error))failBlock{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -34,8 +57,8 @@ static NetworkTool *_networkTool = nil;
                                                                                                                                               create:NO
                                                                                                                                                error:nil
                                                                                                       ];
-                                                                      if(filePath){
-                                                                          return [documentsDirectoryURL URLByAppendingPathComponent:filePath];
+                                                                      if(downloadedPath){
+                                                                          return [NSURL URLWithString:downloadedPath];
                                                                       }else{
                                                                           return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
                                                                       }
@@ -43,8 +66,10 @@ static NetworkTool *_networkTool = nil;
                                                             completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
                                                                 if(error){
                                                                     NSLog(@"Fail to download from: %@", serviceURL);
+                                                                    failBlock(error);
                                                                 }else{
                                                                     NSLog(@"File downloaded to: %@", filePath);
+                                                                    successBlock(downloadedPath);
                                                                 }
                                                             }];
     [downloadTask resume];

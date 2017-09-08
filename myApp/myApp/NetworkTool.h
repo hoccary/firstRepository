@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkTool : NSObject
-+ (instancetype)share;
-- (void)downloadFromUrl:(NSString*)serviceURL filePath:(NSString*)filePath;
+PROPERTY_SINGLETON_FOR_CLASS(NetworkTool)
+- (void)downloadFromUrl:(NSString*)serviceURL
+               filePath:(NSString*)downloadPath
+                success:(void(^)(NSString *filePath))successBlock
+                   fail:(void(^)(NSError *error))failBlock;
+
+- (void)GetFromUrl:(NSString*)URLString
+         URLparams:(NSDictionary*)params
+           success:(void(^)(id responseObject))successBlock
+              fail:(void(^)(NSError *error))failBlock;
 @end

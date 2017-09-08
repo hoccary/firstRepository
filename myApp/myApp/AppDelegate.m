@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "OnPlayViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    OnPlayViewController *homeVC = [[OnPlayViewController alloc] init];
+    UINavigationController *homeNavi = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    homeNavi.tabBarItem.title = @"主页";
+    
+    XJBaseViewController *mineVC = [[XJBaseViewController alloc] init];
+    UINavigationController *mineNavi = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    mineNavi.tabBarItem.title = @"我的";
+    
+    UITabBarController *tabbarVC = [[UITabBarController alloc] init];
+    tabbarVC.viewControllers = @[homeNavi,mineNavi];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = tabbarVC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
