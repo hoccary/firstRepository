@@ -5,4 +5,5 @@ pod 'AFNetworking', '~> 3.0'
 pod 'pop', '~> 1.0'
 pod 'FlyImage', '~>1.0'
 pod 'YYModel'
+pod 'XCDYouTubeKit', '~> 2.5'
 end

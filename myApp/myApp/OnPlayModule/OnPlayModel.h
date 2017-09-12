@@ -52,7 +52,7 @@
 @property (copy,nonatomic) NSString *d;         //影片时长
 @property (copy,nonatomic) NSString *dN;        //导演
 @property (copy,nonatomic) NSString *def;       //???
-@property (copy,nonatomic) NSString *movieid;    //影片 id，需要提供给影片详情
+@property (copy,nonatomic) NSString *movieId;    //影片 id，需要提供给影片详情
 @property (assign,nonatomic) double r;         //影片评分**
 @property (copy,nonatomic) NSString *rd;        //影片上映时间**
 @property (copy,nonatomic) NSString *sC;        //???

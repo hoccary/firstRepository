@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface MovieDetailModel : NSObject
-@property (strong,nonatomic) NSDictionary *actors;
+@property (strong,nonatomic) NSArray *actors;
 @property (strong,nonatomic) NSDictionary *director;
 @property (strong,nonatomic) NSString *img; //剧照
-@property (strong,nonatomic) NSString *is3D;
+@property (assign,nonatomic) NSInteger *is3D;
 @property (strong,nonatomic) NSString *mins;
 @property (strong,nonatomic) NSString *movieId;
 @property (strong,nonatomic) NSString *name;
@@ -23,4 +23,5 @@
 @property (strong,nonatomic) NSDictionary *video;
 @property (strong,nonatomic) NSString *commentSpecial;
 @property (strong,nonatomic) NSString *totalBox;//累计票房
+- (instancetype)initWithDic:(NSDictionary*)dic;
 @end

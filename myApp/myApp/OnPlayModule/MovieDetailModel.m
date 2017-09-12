@@ -35,5 +35,15 @@ todayBoxDes 和 todayBoxDesUnit：今日实时票房量
 totalBox 和 totalBoxUnit：累计票房量
  */
 //basic
+- (instancetype)initWithDic:(NSDictionary*)dic{
+    self = [super init];
+    if(self){
+        [self setValuesForKeysWithDictionary:dic];
+    }
+    return self;
+}
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    
+}
 @end

@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MovieDetailViewModel : NSObject
-
+- (void)requestDetailWithDic:(NSDictionary*)dic
+                     success:(void(^)(NSDictionary *dic))successBlock
+                        fail:(void(^)(NSError *error))failBlock;
 @end

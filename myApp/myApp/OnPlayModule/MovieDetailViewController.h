@@ -9,5 +9,14 @@
 #import "XJBaseViewController.h"
 
 @interface MovieDetailViewController : XJBaseViewController
+//DATAS
+@property (nonatomic,strong) NSString *movieId;
+@property (nonatomic,assign) double marks;
+@end
 
+
+@interface ActorDisplayView : UIView
+@property (nonatomic,strong) UIImageView *actorImageView;
+@property (nonatomic,strong) UILabel *actorNameLabel;
+@property (nonatomic,strong) UILabel *roleNameLabel;
 @end

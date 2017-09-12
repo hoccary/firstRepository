@@ -12,6 +12,14 @@
 - (void)requestDetailWithDic:(NSDictionary*)dic
                      success:(void(^)(NSDictionary *dic))successBlock
                         fail:(void(^)(NSError *error))failBlock{
-    
+    NSDictionary *params = @{@"movieId":dic[@"movieId"],
+                             @"locationId":@"791"};
+    [[NetworkTool sharedNetworkTool] GetFromUrl:URL_MOVIE_DETAIL URLparams:params success:^(id responseObject) {
+        NSDictionary *result = responseObject[@"data"];
+        NSDictionary *basic = result[@"basic"];
+        successBlock(basic);
+    } fail:^(NSError *error) {
+        failBlock(error);
+    }];
 }
 @end

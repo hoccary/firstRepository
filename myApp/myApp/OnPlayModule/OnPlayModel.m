@@ -13,6 +13,7 @@
     self = [super init];
     if(self){
         [self setValuesForKeysWithDictionary:dic];
+        self.movieId = dic[@"id"];
     }
     return self;
 }

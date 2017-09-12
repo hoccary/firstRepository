@@ -65,14 +65,6 @@
     }];
 }
 
-//- (void)animateForLoading:(CGPoint)point{
-//    if(point.y < -40 && point.y > -100){
-//        NSLog(@"\nTableview scroll to %lf",point.y);
-//        self.loadingview.transform = CGAffineTransformRotate(self.loadingview.transform, M_PI/60);
-//        self.loadingview.center = CGPointMake(kScreenWidth/2, -point.y-50);
-//    }
-//}
-
 -(UITableView *)OnPlayTableView{
     if(!_OnPlayTableView){
         _OnPlayTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 49) style:UITableViewStyleGrouped];
@@ -115,10 +107,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 1){
-        MovieDetailViewController *movieVC = [[MovieDetailViewController alloc] init];
-        [self.navigationController pushViewController:movieVC animated:YES];
-    }
+    MovieDetailViewController *movieVC = [[MovieDetailViewController alloc] init];
+    movieVC.movieId = ((OnPlayModel*)(_movieList[indexPath.section])).movieId;
+    movieVC.marks = ((OnPlayModel*)(_movieList[indexPath.section])).r;
+    [self.navigationController pushViewController:movieVC animated:YES];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{

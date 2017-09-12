@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "OnPlayViewController.h"
+#import "MovieDetailViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,7 +23,7 @@
     UINavigationController *homeNavi = [[UINavigationController alloc] initWithRootViewController:homeVC];
     homeNavi.tabBarItem.title = @"主页";
     
-    XJBaseViewController *mineVC = [[XJBaseViewController alloc] init];
+    MovieDetailViewController *mineVC = [[MovieDetailViewController alloc] init];
     UINavigationController *mineNavi = [[UINavigationController alloc] initWithRootViewController:mineVC];
     mineNavi.tabBarItem.title = @"我的";
     
