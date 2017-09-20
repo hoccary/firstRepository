@@ -22,4 +22,16 @@
         failBlock(error);
     }];
 }
+
+- (void)requestCommentsWithDic:(NSDictionary *)dic
+                       success:(void (^)(NSDictionary *))successBlock
+                          fail:(void (^)(NSError *))failBlock{
+    NSDictionary *params = @{@"movieId":dic[@"movieId"]};
+    [[NetworkTool sharedNetworkTool] GetFromUrl:URL_HOT_COMMENT URLparams:params success:^(id responseObject) {
+        NSDictionary *result = responseObject[@"data"];
+        successBlock(result);
+    } fail:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 @end

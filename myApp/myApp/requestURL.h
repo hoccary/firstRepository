@@ -15,4 +15,7 @@
 //movieDetail
 #define URL_MOVIE_DETAIL @"https://ticket-api-m.mtime.cn/movie/detail.api"
 
+//hotComment
+#define URL_HOT_COMMENT @"https://ticket-api-m.mtime.cn/movie/hotComment.api"
+
 #endif /* requestURL_h */

@@ -23,7 +23,7 @@
     UINavigationController *homeNavi = [[UINavigationController alloc] initWithRootViewController:homeVC];
     homeNavi.tabBarItem.title = @"主页";
     
-    MovieDetailViewController *mineVC = [[MovieDetailViewController alloc] init];
+    XJBaseViewController *mineVC = [[XJBaseViewController alloc] init];
     UINavigationController *mineNavi = [[UINavigationController alloc] initWithRootViewController:mineVC];
     mineNavi.tabBarItem.title = @"我的";
     

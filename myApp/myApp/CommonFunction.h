@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface CommonFunction : NSObject
++ (CGFloat)calHeightForText:(NSString*)text
+                   fontSize:(NSInteger)fontSize
+                 labelWidth:(CGFloat)labelWidth;
++ (CGFloat)calHeightForText:(NSString*)text;
 
 @end

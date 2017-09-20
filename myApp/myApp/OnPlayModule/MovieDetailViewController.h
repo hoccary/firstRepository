@@ -7,7 +7,9 @@
 //
 
 #import "XJBaseViewController.h"
-
+#import "MovieDetailViewModel.h"
+#import "MovieDetailModel.h"
+#import "CommentsTableViewCell.h"
 @interface MovieDetailViewController : XJBaseViewController
 //DATAS
 @property (nonatomic,strong) NSString *movieId;

@@ -12,4 +12,8 @@
 - (void)requestDetailWithDic:(NSDictionary*)dic
                      success:(void(^)(NSDictionary *dic))successBlock
                         fail:(void(^)(NSError *error))failBlock;
+
+- (void)requestCommentsWithDic:(NSDictionary *)dic
+                       success:(void (^)(NSDictionary *))successBlock
+                          fail:(void (^)(NSError *))failBlock;
 @end
