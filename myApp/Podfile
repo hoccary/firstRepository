@@ -6,4 +6,5 @@ pod 'pop', '~> 1.0'
 pod 'FlyImage', '~>1.0'
 pod 'YYModel'
 pod 'XCDYouTubeKit', '~> 2.5'
+pod 'SDWebImage', '~> 4.0'
 end

@@ -11,12 +11,14 @@
 #import "OnPlayModel.h"
 #import "MovieDetailViewController.h"
 @interface OnPlayViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
 @property (strong,nonatomic) UITableView *OnPlayTableView;
 @property (strong,nonatomic) OnPlayViewModel *selfVM;
-@property (strong,nonatomic) NSMutableArray *movieList;
+@property (strong,nonatomic) NSArray *movieList;
 @property (strong,nonatomic) UIView *loadingview;
 @property (assign,nonatomic) CGAffineTransform loadingtransform;
 @property (assign,nonatomic) NSInteger isLoading;
+@property (strong,nonatomic) UIView *HightestRatingView;
 @end
 
 @implementation OnPlayViewController
@@ -26,10 +28,10 @@
     // Do any additional setup after loading the view from its nib.
     _movieList = [[NSMutableArray alloc] init];
     _selfVM = [[OnPlayViewModel alloc] init];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self loadData];
 
     [self.view addSubview:self.OnPlayTableView];
-    
     [_OnPlayTableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -51,13 +53,22 @@
     
     [_selfVM requestOnPlayListWithDic:nil success:^(NSDictionary *dic) {
         NSArray *list = dic[@"ms"];
-        [_movieList removeAllObjects];
+        __block NSMutableArray *tmpList = [[NSMutableArray alloc] init];
+//        [_movieList removeAllObjects];
+        __block double maxRate = 0;
+        __block OnPlayModel *maxRateModel;
         [list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSDictionary *tmpDic = obj;
             OnPlayModel *model = [[OnPlayModel alloc] initWithDic:tmpDic];
             if(model.r > 2.0)
-                [_movieList addObject:model];
+                [tmpList addObject:model];
+            if(model.r > maxRate){
+                maxRate = model.r;
+                maxRateModel = model;
+            }
         }];
+        _movieList = tmpList;
+        [self refreshHeaderWithModel:maxRateModel];
         [_OnPlayTableView reloadData];
         _isLoading = 0;
     } fail:^(NSError *error) {
@@ -65,24 +76,36 @@
     }];
 }
 
+- (void)refreshHeaderWithModel:(OnPlayModel*)model{
+    UIImageView *imgView = [_OnPlayTableView.tableHeaderView viewWithTag:201];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    UILabel *labelCN = [_OnPlayTableView.tableHeaderView viewWithTag:202];
+    labelCN.text = [NSString stringWithFormat:@"%@",model.tCn];
+    UILabel *labelEN = [_OnPlayTableView.tableHeaderView viewWithTag:203];
+    labelEN.text = [NSString stringWithFormat:@"%@",model.tEn];
+}
+
 -(UITableView *)OnPlayTableView{
     if(!_OnPlayTableView){
-        _OnPlayTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 49) style:UITableViewStyleGrouped];
+        _OnPlayTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -150, kScreenWidth, kScreenHeight - 49 + 150) style:UITableViewStyleGrouped];
         _OnPlayTableView.dataSource = self;
         _OnPlayTableView.delegate = self;
         _OnPlayTableView.rowHeight = 200*kScale;
         [_OnPlayTableView registerNib:[UINib nibWithNibName:@"OnPlayTableViewCell" bundle:nil]forCellReuseIdentifier:@"onPalyCell"];
-        _OnPlayTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
-        _OnPlayTableView.sectionFooterHeight = 5;
+        _OnPlayTableView.tableHeaderView = self.tableHeaderView;
+        _OnPlayTableView.sectionFooterHeight = 0;
+        _OnPlayTableView.showsVerticalScrollIndicator = NO;
     }
     return _OnPlayTableView;
 }
 
 - (UIView *)loadingview{
     if(!_loadingview){
-        _loadingview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        UIImageView *tmpImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        tmpImageView.image = [UIImage imageNamed:@"refresh"];
+        _loadingview = tmpImageView;
         _loadingview.center = CGPointMake(kScreenWidth/2, -20);
-        _loadingview.backgroundColor = [UIColor redColor];
+        _loadingview.backgroundColor = [UIColor clearColor];
         [self.view addSubview:_loadingview];
         _loadingtransform = _loadingview.transform;
     }
@@ -120,5 +143,4 @@
             [self loadData];
     }
 }
-
 @end

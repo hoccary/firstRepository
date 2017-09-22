@@ -15,9 +15,10 @@
 #import "const.h"
 #import "CommonFunction.h"
 #import "NetworkTool.h"
-#import <YYModel.h>
-#import <POP.h>
-#import <FlyImage.h>
 #import "requestURL.h"
 #import "XJBaseViewController.h"
+#import <YYModel.h>
+#import <POP.h>
+//#import <FlyImage.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #endif /* myPrefixHeader_pch */

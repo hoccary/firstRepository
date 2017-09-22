@@ -13,11 +13,14 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScale kScreenWidth/375
+//
+#define AppTintColor [UIColor redColor]
+
 //获取通知中心
-#define LRNotificationCenter [NSNotificationCenter defaultCenter]
+#define XJNotificationCenter [NSNotificationCenter defaultCenter]
 
 //随机颜色
-#define LRRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+#define XJRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
 //获取temp
 #define kPathTemp NSTemporaryDirectory()

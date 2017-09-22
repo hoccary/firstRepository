@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "OnPlayViewController.h"
-#import "MovieDetailViewController.h"
+#import "MineViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,13 +22,16 @@
     OnPlayViewController *homeVC = [[OnPlayViewController alloc] init];
     UINavigationController *homeNavi = [[UINavigationController alloc] initWithRootViewController:homeVC];
     homeNavi.tabBarItem.title = @"主页";
+    homeNavi.tabBarItem.image = [UIImage imageNamed:@"tabbarHome"] ;
     
-    XJBaseViewController *mineVC = [[XJBaseViewController alloc] init];
+    MineViewController *mineVC = [[MineViewController alloc] init];
     UINavigationController *mineNavi = [[UINavigationController alloc] initWithRootViewController:mineVC];
     mineNavi.tabBarItem.title = @"我的";
+    mineNavi.tabBarItem.image = [UIImage imageNamed:@"tabbarMine"];
     
     UITabBarController *tabbarVC = [[UITabBarController alloc] init];
     tabbarVC.viewControllers = @[homeNavi,mineNavi];
+    tabbarVC.tabBar.tintColor = AppTintColor;
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = tabbarVC;

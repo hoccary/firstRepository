@@ -30,6 +30,8 @@
 		F14FE2391F5EA79500CB81E6 /* MovieDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F14FE2381F5EA79500CB81E6 /* MovieDetailModel.m */; };
 		F16667CC1F530ED2004A3803 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F16667CB1F530ED2004A3803 /* CommonFunction.m */; };
 		F16667CF1F53145C004A3803 /* XJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16667CE1F53145C004A3803 /* XJBaseViewController.m */; };
+		F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18EB49C1F74D19200F117D6 /* MineViewController.m */; };
+		F18EB49F1F74D19200F117D6 /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18EB49D1F74D19200F117D6 /* MineViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,9 @@
 		F16667CB1F530ED2004A3803 /* CommonFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonFunction.m; path = ../CommonFunction.m; sourceTree = "<group>"; };
 		F16667CD1F53145C004A3803 /* XJBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XJBaseViewController.h; path = ../XJBaseViewController.h; sourceTree = "<group>"; };
 		F16667CE1F53145C004A3803 /* XJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XJBaseViewController.m; path = ../XJBaseViewController.m; sourceTree = "<group>"; };
+		F18EB49B1F74D19200F117D6 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		F18EB49C1F74D19200F117D6 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		F18EB49D1F74D19200F117D6 /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F16667D61F531521004A3803 /* CommonModule */,
+				F18EB49A1F74D17900F117D6 /* MineModule */,
 				F14FE21D1F5ABF7A00CB81E6 /* OnPlayModule */,
 				F107BDB81F4FF2550012C345 /* Supporting Files */,
 			);
@@ -203,6 +209,16 @@
 			path = CommonModule;
 			sourceTree = "<group>";
 		};
+		F18EB49A1F74D17900F117D6 /* MineModule */ = {
+			isa = PBXGroup;
+			children = (
+				F18EB49B1F74D19200F117D6 /* MineViewController.h */,
+				F18EB49C1F74D19200F117D6 /* MineViewController.m */,
+				F18EB49D1F74D19200F117D6 /* MineViewController.xib */,
+			);
+			path = MineModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,7 +253,7 @@
 				TargetAttributes = {
 					F107BDB41F4FF2550012C345 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -266,6 +282,7 @@
 			files = (
 				F14FE2331F5E9C4800CB81E6 /* MovieDetailViewController.xib in Resources */,
 				F107BDC81F4FF2550012C345 /* LaunchScreen.storyboard in Resources */,
+				F18EB49F1F74D19200F117D6 /* MineViewController.xib in Resources */,
 				F107BDC51F4FF2550012C345 /* Assets.xcassets in Resources */,
 				F145C7321F6A8D6200CF2F49 /* StoryTableViewCell.xib in Resources */,
 				F14FE22E1F5AC27800CB81E6 /* OnPlayTableViewCell.xib in Resources */,
@@ -345,6 +362,7 @@
 				F14FE22D1F5AC27800CB81E6 /* OnPlayTableViewCell.m in Sources */,
 				F14FE2361F5EA77700CB81E6 /* MovieDetailViewModel.m in Sources */,
 				F145C72C1F692C4700CF2F49 /* CommentsTableViewCell.m in Sources */,
+				F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */,
 				F107BDBA1F4FF2550012C345 /* main.m in Sources */,
 				F16667CF1F53145C004A3803 /* XJBaseViewController.m in Sources */,
 			);
@@ -470,7 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bocop.yironghui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e4738ec9-1065-42f0-8d00-cd3418d42a13";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = erh;
 			};
 			name = Debug;
 		};
@@ -488,7 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bocop.yironghui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e4738ec9-1065-42f0-8d00-cd3418d42a13";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = erh;
 			};
 			name = Release;
 		};

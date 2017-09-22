@@ -5,7 +5,8 @@
 //  Created by 张东伟 on 17/9/5.
 //  Copyright © 2017年 张东伟. All rights reserved.
 //
-
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "MovieDetailViewController.h"
 
 @interface MovieDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
@@ -27,9 +28,62 @@
 @property (nonatomic,copy) NSArray *miniList;
 @property (nonatomic,copy) NSArray *plusList;
 @property (nonatomic,copy) NSArray *sectionTitles;
+
+//@property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) AVPlayerViewController  *playerView;
+
 @end
 
 @implementation MovieDetailViewController
+
+-(void)action{
+    NSDictionary *videoDic = _selfModel.video;
+    if([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus ==  AFNetworkReachabilityStatusReachableViaWiFi)
+        [self playVideoFromUrl:videoDic[@"hightUrl"]];
+    else
+        [self playVideoFromUrl:videoDic[@"url"]];
+}
+- (void)playOrPause{
+    if(_playerView.player.timeControlStatus == AVPlayerTimeControlStatusPlaying){
+        [_playerView.player pause];
+    }else if(_playerView.player.timeControlStatus == AVPlayerTimeControlStatusPaused){
+        [_playerView.player play];
+    }else{
+        
+    }
+}
+
+- (void)playVideoFromUrl:(NSString*)urlString{
+    //视频播放的url
+    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:0 inSection:2];
+    UITableViewCell *videoCell = [_mainTableView cellForRowAtIndexPath:indexpath];
+    CGRect rect = CGRectMake(0, 0, videoCell.contentView.frame.size.width, videoCell.frame.size.height);
+    UIView *coverView = [[UIView alloc] initWithFrame:rect];
+    coverView.backgroundColor = [UIColor clearColor];
+    NSURL * videoURL = [NSURL URLWithString:urlString];
+    _playerView = [[AVPlayerViewController alloc] init];
+
+    _playerView.view.frame = rect;
+    _playerView.player = [[AVPlayer alloc] initWithURL:videoURL];
+    /*
+     可以设置的值及意义如下：
+     AVLayerVideoGravityResizeAspect   不进行比例缩放 以宽高中长的一边充满为基准
+     AVLayerVideoGravityResizeAspectFill 不进行比例缩放 以宽高中短的一边充满为基准
+     AVLayerVideoGravityResize     进行缩放充满屏幕
+     */
+    _playerView.videoGravity = AVLayerVideoGravityResizeAspect;
+    _playerView.showsPlaybackControls = NO;
+    [videoCell addSubview:_playerView.view];
+    [_playerView.player play];
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playOrPause)];
+    gesture.numberOfTouchesRequired = 1;
+    [coverView addGestureRecognizer:gesture];
+    [_playerView.view addSubview:coverView];
+}
+
+- (BOOL)playerViewControllerShouldAutomaticall{
+    return YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +93,7 @@
     _sectionTitles = @[@"剧情",@"主演",@"预告片",@"短评",@"长评",];
     _selfVM = [[MovieDetailViewModel alloc] init];
     [self requestDetails];
+
 }
 
 - (void)requestDetails{
@@ -50,7 +105,7 @@
         _storyLabel.text = _selfModel.story;
         _releaseDateLabel.text = [NSString stringWithFormat:@"%@-%@-%@",[_selfModel.releaseDate substringToIndex:4],[_selfModel.releaseDate substringWithRange:NSMakeRange(4, 2)],[_selfModel.releaseDate substringFromIndex:6]];
         _is3DLabel.text = (_selfModel.is3D == 1)?@"3D":@"2D";
-        [_headerImage setImageURL:[NSURL URLWithString:_selfModel.img]];
+        [_headerImage sd_setImageWithURL:[NSURL URLWithString:_selfModel.img]];
         _numberOfSections = 3;
         [_mainTableView reloadData];
         [self requestComments];
@@ -100,11 +155,12 @@ double getAlphaBetween(double a, double b, double y){
 
 - (UITableView *)mainTableView{
     if(!_mainTableView){
-        _mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+        _mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -200, kScreenWidth, kScreenHeight+200) style:UITableViewStylePlain];
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;
         _mainTableView.tableHeaderView = self.headerView;
         [_mainTableView registerNib:[UINib nibWithNibName:@"CommentsTableViewCell" bundle:nil] forCellReuseIdentifier:@"commentsCell"];
+        [_mainTableView registerNib:[UINib nibWithNibName:@"StoryTableViewCell" bundle:nil] forCellReuseIdentifier:@"storyCell"];
         _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTableView.sectionHeaderHeight = 30;
         _mainTableView.rowHeight = UITableViewAutomaticDimension;
@@ -118,17 +174,37 @@ double getAlphaBetween(double a, double b, double y){
         _naviView.backgroundColor = [UIColor clearColor];
         
         UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
-        colorView.backgroundColor = [UIColor orangeColor];
+        colorView.backgroundColor = AppTintColor;
         colorView.tag = 100;
         colorView.alpha = 0;
+        
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 20, kScreenWidth - 100, 44)];
+        titleLabel.text = @"影片详情";
+        titleLabel.font = [UIFont systemFontOfSize:18];
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [colorView addSubview:titleLabel];
         [_naviView addSubview:colorView];
         
+
+        
+        
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        backBtn.frame = CGRectMake(15, 27, 50, 20);
-        [backBtn setTitle:@"《返回" forState:UIControlStateNormal];
+        backBtn.frame = CGRectMake(10, 27, 30, 30);
+        [backBtn setImage:[UIImage imageNamed:@"naviBackArrow"] forState:UIControlStateNormal];
+        backBtn.tintColor = [UIColor whiteColor];
+//        [backBtn setTitle:@"《返回" forState:UIControlStateNormal];
         backBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [_naviView addSubview:backBtn];
         [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *stageImageBtn =  [UIButton buttonWithType:UIButtonTypeSystem];
+        stageImageBtn.frame = CGRectMake(kScreenWidth - 50, 26, 30, 30);
+        [stageImageBtn setImage:[UIImage imageNamed:@"stagePicture"] forState:UIControlStateNormal];
+        stageImageBtn.tintColor = [UIColor whiteColor];
+        [_naviView addSubview:stageImageBtn];
+        [stageImageBtn addTarget:self action:@selector(showStagePicture) forControlEvents:UIControlEventTouchUpInside];
     }
     return _naviView;
 }
@@ -141,6 +217,10 @@ double getAlphaBetween(double a, double b, double y){
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)showStagePicture{
+    
+}
+
 - (UIView*)cellTitleLabel:(NSString *)titleStr{
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, kScreenWidth, 30)];
@@ -148,8 +228,8 @@ double getAlphaBetween(double a, double b, double y){
     title.font = [UIFont systemFontOfSize:16];
     title.numberOfLines = 1;
     [titleView addSubview:title];
-    UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, 5, 20)];
-    colorView.backgroundColor = [UIColor orangeColor];
+    UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(6, 8, 5, 14)];
+    colorView.backgroundColor = AppTintColor;
     colorView.layer.cornerRadius = 3;
     colorView.layer.masksToBounds = YES;
     [titleView addSubview:colorView];
@@ -181,34 +261,45 @@ double getAlphaBetween(double a, double b, double y){
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"row ===== %ld",indexPath.row);
     if(indexPath.section == 0){
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"a"];
+        StoryTableViewCell *cell = [_mainTableView dequeueReusableCellWithIdentifier:@"storyCell"];
         [cell addSubview:self.storyLabel];
-        _storyLabel.text = _selfModel.story;
+        cell.storyLabel.text = _selfModel.story;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if(indexPath.section == 1){
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"a"];
+        UIScrollView *actorScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 180)];
+        actorScrollView.contentSize = CGSizeMake(kScreenWidth/3*_selfModel.actors.count, 180);
+        actorScrollView.showsVerticalScrollIndicator = NO;
+        actorScrollView.showsHorizontalScrollIndicator = NO;
         for(int i=0; i!=_selfModel.actors.count; ++i){
-            ActorDisplayView *actors = [[ActorDisplayView alloc] initWithFrame:CGRectMake(kScreenWidth/3*i, 0, kScreenWidth/3, 200)];
+            ActorDisplayView *actors = [[ActorDisplayView alloc] initWithFrame:CGRectMake(kScreenWidth/3*i, 0, kScreenWidth/3, 180)];
             NSDictionary *actorDic = _selfModel.actors[i];
-            [actors.actorImageView setImageURL:[NSURL URLWithString:[actorDic[@"roleImg"] isEqualToString:@""]?actorDic[@"img"]:actorDic[@"roleImg"]]];
+            [actors.actorImageView sd_setImageWithURL:[NSURL URLWithString:[actorDic[@"roleImg"] isEqualToString:@""]?actorDic[@"img"]:actorDic[@"roleImg"]]];
             actors.actorNameLabel.text = actorDic[@"name"];
             actors.roleNameLabel.text = actorDic[@"roleName"];
-            [cell addSubview:actors];
+            [actorScrollView addSubview:actors];
         }
+        [cell addSubview:actorScrollView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if(indexPath.section == 2){
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"a"];
-        UIImageView *videoImage = [[UIImageView alloc] initWithFrame:CGRectMake(30, 0, kScreenWidth-60, 150)];
+        UIImageView *videoImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, kScreenWidth - 40, 200)];
         NSDictionary *videoDic = _selfModel.video;
-        [videoImage setImageURL:[NSURL URLWithString:videoDic[@"img"]]];
-        videoImage.layer.shadowColor = [UIColor blackColor].CGColor;
-        videoImage.layer.shadowOpacity = 0.5;
-        videoImage.layer.shadowRadius = 4;
-        videoImage.layer.shadowOffset = CGSizeMake(4, 4);
+        [videoImage sd_setImageWithURL:[NSURL URLWithString:videoDic[@"img"]]];
         videoImage.layer.cornerRadius = 4;
         videoImage.layer.masksToBounds = YES;
+        videoImage.userInteractionEnabled = YES;
+        UIImageView *playIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"playVideo"]];
+        playIcon.layer.shadowColor = [UIColor whiteColor].CGColor;
+        playIcon.layer.shadowOpacity = 0.8;
+        playIcon.layer.shadowRadius = 16;
+        playIcon.layer.shadowOffset = CGSizeZero;
+        playIcon.center = CGPointMake(videoImage.frame.size.width/2, videoImage.frame.size.height/2);
+        [videoImage addSubview:playIcon];
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(action)];
+        [videoImage addGestureRecognizer:gesture];
         [cell addSubview:videoImage];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -231,25 +322,23 @@ double getAlphaBetween(double a, double b, double y){
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    if(indexPath.section == 0){
+        return 100;
+    }
     if(indexPath.section == 3){
         return 137;
     }else if(indexPath.section == 4){
-        return 300;
+        return 500;
     }else{
         return 0;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0){
-        return 100;
-    }else if(indexPath.section == 1){
+    if(indexPath.section == 1){
         return 180;
     }else if(indexPath.section == 2){
-        return 160;
-    }else if(indexPath.section == 3){
-        return UITableViewAutomaticDimension;
+        return 220;
     }else{
         return UITableViewAutomaticDimension;
     }
@@ -257,12 +346,14 @@ double getAlphaBetween(double a, double b, double y){
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.mainTableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     [_mainTableView removeObserver:self forKeyPath:@"contentOffset"];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
 @end
 

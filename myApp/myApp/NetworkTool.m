@@ -37,32 +37,32 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkTool)
     [dataTask resume];
 }
 
-- (void)requestImageFromURL:(NSString*)URLString
-                   fileName:(NSString*)filename
-                 identifier:(NSString*)identifier
-                    success:(void(^)(UIImage *image))successBlock
-                       fail:(void(^)(NSError *error))failBlock{
-    NSString *key = [NSString stringWithFormat:@"%@_%@",identifier,filename];
-    if ( [[FlyImageCache sharedInstance] isImageExistWithKey:key] ) {
-        NSString *path = [[FlyImageCache sharedInstance] imagePathWithKey:key];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        successBlock(image);
-    }else{
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: URLString]];
-        [[FlyImageDownloader sharedInstance] downloadImageForURLRequest:request progress:nil success:^(NSURLRequest *request, NSURL *filePath) {
-            
-            [[FlyImageCache sharedInstance] addImageWithKey:key filename:[filePath lastPathComponent] completed:^(NSString *key, UIImage *image) {
-                successBlock(image);
-            }];
-            
-        } failed:^(NSURLRequest *request, NSError *error) {
-            NSLog(@"occur error = %@", error );
-            failBlock(error);
-        }];
-    }
-}
+//- (void)requestImageFromURL:(NSString*)URLString
+//                   fileName:(NSString*)filename
+//                 identifier:(NSString*)identifier
+//                    success:(void(^)(UIImage *image))successBlock
+//                       fail:(void(^)(NSError *error))failBlock{
+//    NSString *key = [NSString stringWithFormat:@"%@_%@",identifier,filename];
+//    if ( [[FlyImageCache sharedInstance] isImageExistWithKey:key] ) {
+//        NSString *path = [[FlyImageCache sharedInstance] imagePathWithKey:key];
+//        NSURL *url = [NSURL fileURLWithPath:path];
+//        NSData *data = [NSData dataWithContentsOfURL:url];
+//        UIImage *image = [UIImage imageWithData:data];
+//        successBlock(image);
+//    }else{
+//        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: URLString]];
+//        [[FlyImageDownloader sharedInstance] downloadImageForURLRequest:request progress:nil success:^(NSURLRequest *request, NSURL *filePath) {
+//            
+//            [[FlyImageCache sharedInstance] addImageWithKey:key filename:[filePath lastPathComponent] completed:^(NSString *key, UIImage *image) {
+//                successBlock(image);
+//            }];
+//            
+//        } failed:^(NSURLRequest *request, NSError *error) {
+//            NSLog(@"occur error = %@", error );
+//            failBlock(error);
+//        }];
+//    }
+//}
 
 
 

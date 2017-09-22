@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"naviBackArrow"] style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationItem.leftBarButtonItem = backBtn;
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,20 +35,20 @@
     [super viewWillAppear:animated];
     switch ([self naviAndTabState]) {
         case 0:
-            [self.navigationController setNavigationBarHidden:YES animated:YES];
+            self.navigationController.navigationBarHidden = YES;
             self.tabBarController.tabBar.hidden = YES;
             break;
         case 1:
-            [self.navigationController setNavigationBarHidden:NO animated:YES];
+            self.navigationController.navigationBarHidden = NO;
             self.tabBarController.tabBar.hidden = YES;
             break;
         case 2:
-            [self.navigationController setNavigationBarHidden:YES animated:YES];
+            self.navigationController.navigationBarHidden = YES;
             self.tabBarController.tabBar.hidden = NO;
             break;
         case 3:
-            [self.navigationController setNavigationBarHidden:NO animated:YES];
-            self.tabBarController.tabBar.hidden = YES;
+            self.navigationController.navigationBarHidden = NO;
+            self.tabBarController.tabBar.hidden = NO;
             break;
         default:
             break;

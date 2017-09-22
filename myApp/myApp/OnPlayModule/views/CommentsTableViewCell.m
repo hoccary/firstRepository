@@ -23,7 +23,7 @@
 
 - (void)setDatas:(NSDictionary *)datas{
     _datas = datas;
-    [_headImg setIconURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_datas[@"headImg"]]]];
+    [_headImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",_datas[@"headImg"]]] placeholderImage:[UIImage imageNamed:@"defaultHeaderIcon"]];
     _headImg.layer.cornerRadius = _headImg.frame.size.width/2;
     _headImg.layer.masksToBounds = YES;
     _comment.text = [NSString stringWithFormat:@"%@",_datas[@"content"]];

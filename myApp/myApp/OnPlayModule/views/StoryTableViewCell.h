@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface StoryTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *storyLabel;
 
 @end
