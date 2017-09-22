@@ -73,12 +73,13 @@
      */
     _playerView.videoGravity = AVLayerVideoGravityResizeAspect;
     _playerView.showsPlaybackControls = NO;
-    [videoCell addSubview:_playerView.view];
-    [_playerView.player play];
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playOrPause)];
     gesture.numberOfTouchesRequired = 1;
     [coverView addGestureRecognizer:gesture];
-    [_playerView.view addSubview:coverView];
+    [videoCell addSubview:_playerView.view];
+    [videoCell addSubview:coverView];
+    [_playerView.player play];
+
 }
 
 - (BOOL)playerViewControllerShouldAutomaticall{
