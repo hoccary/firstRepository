@@ -12,4 +12,7 @@
 - (void)requestOnPlayListWithDic:(NSDictionary*)dic
                          success:(void(^)(NSDictionary *))successBlock
                             fail:(void(^)(NSError *))failBlock;
+- (void)getFormSwaggerApiDic:(NSDictionary*)dic
+                     success:(void(^)(NSDictionary *))successBlock
+                        fail:(void(^)(NSError *))failBlock;
 @end

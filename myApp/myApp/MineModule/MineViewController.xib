@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineViewController">
             <connections>
+                <outlet property="tableHeaderView" destination="z0e-mU-jab" id="D5A-DB-R9t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,5 +21,60 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </view>
+        <view contentMode="scaleToFill" id="z0e-mU-jab">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNI-7S-ivY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultHeaderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GIq-Yf-onJ">
+                            <rect key="frame" x="30" y="14" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="75" id="LdU-wd-1Hi"/>
+                                <constraint firstAttribute="width" constant="75" id="dkg-u6-Pj0"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咖啡毛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM3-95-nKW">
+                            <rect key="frame" x="135" y="40" width="61.5" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfl-Xf-MBX">
+                            <rect key="frame" x="0.0" y="102.5" width="375" height="0.5"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="PiF-HL-O1Y"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="NM3-95-nKW" firstAttribute="centerY" secondItem="sNI-7S-ivY" secondAttribute="centerY" id="KnZ-RO-zBk"/>
+                        <constraint firstAttribute="trailing" secondItem="Hfl-Xf-MBX" secondAttribute="trailing" id="MAy-1J-rd1"/>
+                        <constraint firstItem="GIq-Yf-onJ" firstAttribute="leading" secondItem="sNI-7S-ivY" secondAttribute="leading" constant="30" id="Ri8-VD-0A3"/>
+                        <constraint firstItem="GIq-Yf-onJ" firstAttribute="centerY" secondItem="sNI-7S-ivY" secondAttribute="centerY" id="S9V-3L-8fj"/>
+                        <constraint firstItem="NM3-95-nKW" firstAttribute="leading" secondItem="GIq-Yf-onJ" secondAttribute="trailing" constant="30" id="UDa-a5-Lsu"/>
+                        <constraint firstAttribute="bottom" secondItem="Hfl-Xf-MBX" secondAttribute="bottom" id="xNy-vt-VA0"/>
+                        <constraint firstItem="Hfl-Xf-MBX" firstAttribute="leading" secondItem="sNI-7S-ivY" secondAttribute="leading" id="zV5-zJ-DxS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="sNI-7S-ivY" firstAttribute="leading" secondItem="z0e-mU-jab" secondAttribute="leading" id="dce-rv-iyt"/>
+                <constraint firstItem="sNI-7S-ivY" firstAttribute="top" secondItem="z0e-mU-jab" secondAttribute="top" id="f5h-fS-A8k"/>
+                <constraint firstAttribute="trailing" secondItem="sNI-7S-ivY" secondAttribute="trailing" id="qod-sz-DS5"/>
+                <constraint firstAttribute="bottom" secondItem="sNI-7S-ivY" secondAttribute="bottom" constant="30" id="wzk-Xt-JfL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="504.5" y="-99.5"/>
+        </view>
     </objects>
+    <resources>
+        <image name="defaultHeaderIcon" width="72" height="72"/>
+    </resources>
 </document>

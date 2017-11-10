@@ -30,6 +30,12 @@
 		F14FE2391F5EA79500CB81E6 /* MovieDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F14FE2381F5EA79500CB81E6 /* MovieDetailModel.m */; };
 		F16667CC1F530ED2004A3803 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F16667CB1F530ED2004A3803 /* CommonFunction.m */; };
 		F16667CF1F53145C004A3803 /* XJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16667CE1F53145C004A3803 /* XJBaseViewController.m */; };
+		F17959FF1F8B0D2800A8F0A3 /* StageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17959FD1F8B0D2800A8F0A3 /* StageImageViewController.m */; };
+		F1795A001F8B0D2800A8F0A3 /* StageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17959FE1F8B0D2800A8F0A3 /* StageImageViewController.xib */; };
+		F1795A031F8B0D4700A8F0A3 /* StageImageViewMocel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1795A021F8B0D4700A8F0A3 /* StageImageViewMocel.m */; };
+		F1795A061F8B0D5700A8F0A3 /* StageImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1795A051F8B0D5700A8F0A3 /* StageImageModel.m */; };
+		F1795A0A1F8B16D700A8F0A3 /* StageImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1795A081F8B16D700A8F0A3 /* StageImageCollectionViewCell.m */; };
+		F1795A0B1F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1795A091F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib */; };
 		F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18EB49C1F74D19200F117D6 /* MineViewController.m */; };
 		F18EB49F1F74D19200F117D6 /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18EB49D1F74D19200F117D6 /* MineViewController.xib */; };
 /* End PBXBuildFile section */
@@ -78,6 +84,16 @@
 		F16667CB1F530ED2004A3803 /* CommonFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonFunction.m; path = ../CommonFunction.m; sourceTree = "<group>"; };
 		F16667CD1F53145C004A3803 /* XJBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XJBaseViewController.h; path = ../XJBaseViewController.h; sourceTree = "<group>"; };
 		F16667CE1F53145C004A3803 /* XJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XJBaseViewController.m; path = ../XJBaseViewController.m; sourceTree = "<group>"; };
+		F17959FC1F8B0D2800A8F0A3 /* StageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageImageViewController.h; sourceTree = "<group>"; };
+		F17959FD1F8B0D2800A8F0A3 /* StageImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageImageViewController.m; sourceTree = "<group>"; };
+		F17959FE1F8B0D2800A8F0A3 /* StageImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StageImageViewController.xib; sourceTree = "<group>"; };
+		F1795A011F8B0D4700A8F0A3 /* StageImageViewMocel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageImageViewMocel.h; sourceTree = "<group>"; };
+		F1795A021F8B0D4700A8F0A3 /* StageImageViewMocel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageImageViewMocel.m; sourceTree = "<group>"; };
+		F1795A041F8B0D5700A8F0A3 /* StageImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageImageModel.h; sourceTree = "<group>"; };
+		F1795A051F8B0D5700A8F0A3 /* StageImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageImageModel.m; sourceTree = "<group>"; };
+		F1795A071F8B16D700A8F0A3 /* StageImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageImageCollectionViewCell.h; sourceTree = "<group>"; };
+		F1795A081F8B16D700A8F0A3 /* StageImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageImageCollectionViewCell.m; sourceTree = "<group>"; };
+		F1795A091F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StageImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		F18EB49B1F74D19200F117D6 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F18EB49C1F74D19200F117D6 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F18EB49D1F74D19200F117D6 /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
@@ -173,6 +189,13 @@
 				F14FE2351F5EA77700CB81E6 /* MovieDetailViewModel.m */,
 				F14FE2371F5EA79500CB81E6 /* MovieDetailModel.h */,
 				F14FE2381F5EA79500CB81E6 /* MovieDetailModel.m */,
+				F17959FC1F8B0D2800A8F0A3 /* StageImageViewController.h */,
+				F17959FD1F8B0D2800A8F0A3 /* StageImageViewController.m */,
+				F17959FE1F8B0D2800A8F0A3 /* StageImageViewController.xib */,
+				F1795A011F8B0D4700A8F0A3 /* StageImageViewMocel.h */,
+				F1795A021F8B0D4700A8F0A3 /* StageImageViewMocel.m */,
+				F1795A041F8B0D5700A8F0A3 /* StageImageModel.h */,
+				F1795A051F8B0D5700A8F0A3 /* StageImageModel.m */,
 			);
 			path = OnPlayModule;
 			sourceTree = "<group>";
@@ -189,6 +212,9 @@
 				F145C72E1F6A8D6200CF2F49 /* StoryTableViewCell.h */,
 				F145C72F1F6A8D6200CF2F49 /* StoryTableViewCell.m */,
 				F145C7301F6A8D6200CF2F49 /* StoryTableViewCell.xib */,
+				F1795A071F8B16D700A8F0A3 /* StageImageCollectionViewCell.h */,
+				F1795A081F8B16D700A8F0A3 /* StageImageCollectionViewCell.m */,
+				F1795A091F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -283,12 +309,14 @@
 				F14FE2331F5E9C4800CB81E6 /* MovieDetailViewController.xib in Resources */,
 				F107BDC81F4FF2550012C345 /* LaunchScreen.storyboard in Resources */,
 				F18EB49F1F74D19200F117D6 /* MineViewController.xib in Resources */,
+				F1795A0B1F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib in Resources */,
 				F107BDC51F4FF2550012C345 /* Assets.xcassets in Resources */,
 				F145C7321F6A8D6200CF2F49 /* StoryTableViewCell.xib in Resources */,
 				F14FE22E1F5AC27800CB81E6 /* OnPlayTableViewCell.xib in Resources */,
 				F14FE2221F5ABF9A00CB81E6 /* OnPlayViewController.xib in Resources */,
 				F10927611F68B6070057E84A /* 2017EN.txt in Resources */,
 				F145C72D1F692C4700CF2F49 /* CommentsTableViewCell.xib in Resources */,
+				F1795A001F8B0D2800A8F0A3 /* StageImageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,21 +378,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1795A061F8B0D5700A8F0A3 /* StageImageModel.m in Sources */,
 				F107BE0E1F50218D0012C345 /* NetworkTool.m in Sources */,
 				F14FE2211F5ABF9A00CB81E6 /* OnPlayViewController.m in Sources */,
 				F14FE2321F5E9C4800CB81E6 /* MovieDetailViewController.m in Sources */,
 				F107BDBD1F4FF2550012C345 /* AppDelegate.m in Sources */,
 				F16667CC1F530ED2004A3803 /* CommonFunction.m in Sources */,
+				F1795A031F8B0D4700A8F0A3 /* StageImageViewMocel.m in Sources */,
 				F14FE2391F5EA79500CB81E6 /* MovieDetailModel.m in Sources */,
 				F14FE2281F5ABFD700CB81E6 /* OnPlayModel.m in Sources */,
 				F145C7311F6A8D6200CF2F49 /* StoryTableViewCell.m in Sources */,
 				F14FE2251F5ABFC500CB81E6 /* OnPlayViewModel.m in Sources */,
 				F14FE22D1F5AC27800CB81E6 /* OnPlayTableViewCell.m in Sources */,
 				F14FE2361F5EA77700CB81E6 /* MovieDetailViewModel.m in Sources */,
+				F17959FF1F8B0D2800A8F0A3 /* StageImageViewController.m in Sources */,
 				F145C72C1F692C4700CF2F49 /* CommentsTableViewCell.m in Sources */,
 				F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */,
 				F107BDBA1F4FF2550012C345 /* main.m in Sources */,
 				F16667CF1F53145C004A3803 /* XJBaseViewController.m in Sources */,
+				F1795A0A1F8B16D700A8F0A3 /* StageImageCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

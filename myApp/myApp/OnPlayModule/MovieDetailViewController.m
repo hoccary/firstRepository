@@ -8,6 +8,7 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "MovieDetailViewController.h"
+#import "StageImageViewController.h"
 
 @interface MovieDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *headerView;
@@ -219,7 +220,8 @@ double getAlphaBetween(double a, double b, double y){
 }
 
 - (void)showStagePicture{
-    
+    StageImageViewController *stageImageVC = [[StageImageViewController alloc] init];
+    [self.navigationController pushViewController:stageImageVC animated:YES];
 }
 
 - (UIView*)cellTitleLabel:(NSString *)titleStr{

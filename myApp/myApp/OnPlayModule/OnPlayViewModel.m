@@ -20,4 +20,18 @@
         failBlock(error);
     }];
 }
+
+
+
+- (void)getFormSwaggerApiDic:(NSDictionary*)dic
+                     success:(void(^)(NSDictionary *))successBlock
+                        fail:(void(^)(NSError *))failBlock{
+    NSDictionary *params = @{@"locationId":@"791"};
+    [[NetworkTool sharedNetworkTool] GetFromUrl:@"http://127.0.0.1:7300/mock/59cd9c21d6ba20bd1df32ef6/base/v2/pet/findByStatus" URLparams:params success:^(id responseObject) {
+        NSDictionary *result = responseObject;
+        successBlock(result);
+    } fail:^(NSError *error) {
+        failBlock(error);
+    }];
+}
 @end

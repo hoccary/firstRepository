@@ -9,5 +9,6 @@
 #import "XJBaseViewController.h"
 
 @interface MineViewController : XJBaseViewController
+@property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
 
 @end

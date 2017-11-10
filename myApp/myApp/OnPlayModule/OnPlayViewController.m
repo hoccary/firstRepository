@@ -33,6 +33,12 @@
 
     [self.view addSubview:self.OnPlayTableView];
     [_OnPlayTableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    
+    [[NetworkTool sharedNetworkTool] GetFromUrl:@"http://127.0.0.1:10010/base/persons" URLparams:nil success:^(id responseObject) {
+        NSLog(@"success");
+    } fail:^(NSError *error) {
+        NSLog(@"fail");
+    }];
 }
 
 - (NSInteger)naviAndTabState{
@@ -50,7 +56,11 @@
 
 - (void)loadData{
     _isLoading = 1;
-    
+    [_selfVM getFormSwaggerApiDic:nil success:^(NSDictionary *dic) {
+        
+    } fail:^(NSError *error) {
+        
+    }];
     [_selfVM requestOnPlayListWithDic:nil success:^(NSDictionary *dic) {
         NSArray *list = dic[@"ms"];
         __block NSMutableArray *tmpList = [[NSMutableArray alloc] init];
