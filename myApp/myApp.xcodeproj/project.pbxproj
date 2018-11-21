@@ -13,7 +13,18 @@
 		F107BDC51F4FF2550012C345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F107BDC41F4FF2550012C345 /* Assets.xcassets */; };
 		F107BDC81F4FF2550012C345 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F107BDC61F4FF2550012C345 /* LaunchScreen.storyboard */; };
 		F107BE0E1F50218D0012C345 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F107BE0D1F50218D0012C345 /* NetworkTool.m */; };
-		F10927611F68B6070057E84A /* 2017EN.txt in Resources */ = {isa = PBXBuildFile; fileRef = F10927601F68B6070057E84A /* 2017EN.txt */; };
+		F10944242181B205006D85BC /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10944222181B205006D85BC /* NewsListViewController.m */; };
+		F10944252181B205006D85BC /* NewsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10944232181B205006D85BC /* NewsListViewController.xib */; };
+		F10944282181B21E006D85BC /* NewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F10944272181B21E006D85BC /* NewsListViewModel.m */; };
+		F109442B2181B22A006D85BC /* NewsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F109442A2181B22A006D85BC /* NewsListModel.m */; };
+		F109442F2181B320006D85BC /* NewsListBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F109442E2181B320006D85BC /* NewsListBaseTableViewCell.m */; };
+		F10944352181B567006D85BC /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10944332181B567006D85BC /* AlarmListViewController.m */; };
+		F10944362181B567006D85BC /* AlarmListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10944342181B567006D85BC /* AlarmListViewController.xib */; };
+		F109443B2181B600006D85BC /* AlarmListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F10944392181B600006D85BC /* AlarmListTableViewCell.m */; };
+		F144DB722191784A00D5D3D5 /* AlarmListQuickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F144DB702191784A00D5D3D5 /* AlarmListQuickCell.m */; };
+		F144DB732191784A00D5D3D5 /* AlarmListQuickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F144DB712191784A00D5D3D5 /* AlarmListQuickCell.xib */; };
+		F144DB772191786600D5D3D5 /* AlarmListNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F144DB752191786600D5D3D5 /* AlarmListNormalCell.m */; };
+		F144DB782191786600D5D3D5 /* AlarmListNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F144DB762191786600D5D3D5 /* AlarmListNormalCell.xib */; };
 		F145C72C1F692C4700CF2F49 /* CommentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F145C72A1F692C4700CF2F49 /* CommentsTableViewCell.m */; };
 		F145C72D1F692C4700CF2F49 /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F145C72B1F692C4700CF2F49 /* CommentsTableViewCell.xib */; };
 		F145C7311F6A8D6200CF2F49 /* StoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F145C72F1F6A8D6200CF2F49 /* StoryTableViewCell.m */; };
@@ -38,6 +49,8 @@
 		F1795A0B1F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1795A091F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib */; };
 		F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18EB49C1F74D19200F117D6 /* MineViewController.m */; };
 		F18EB49F1F74D19200F117D6 /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18EB49D1F74D19200F117D6 /* MineViewController.xib */; };
+		F1F75F5C2192D3AB00E8080C /* AlarmListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F75F5B2192D3AB00E8080C /* AlarmListViewModel.m */; };
+		F1F75F5F2192D3BC00E8080C /* AlarmListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F75F5E2192D3BC00E8080C /* AlarmListModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +67,27 @@
 		F107BDD11F500BCC0012C345 /* myPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myPrefixHeader.pch; path = ../myPrefixHeader.pch; sourceTree = "<group>"; };
 		F107BE0C1F50218D0012C345 /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTool.h; path = ../NetworkTool.h; sourceTree = "<group>"; };
 		F107BE0D1F50218D0012C345 /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkTool.m; path = ../NetworkTool.m; sourceTree = "<group>"; };
-		F10927601F68B6070057E84A /* 2017EN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2017EN.txt; sourceTree = "<group>"; };
+		F10944212181B205006D85BC /* NewsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
+		F10944222181B205006D85BC /* NewsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
+		F10944232181B205006D85BC /* NewsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsListViewController.xib; sourceTree = "<group>"; };
+		F10944262181B21E006D85BC /* NewsListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListViewModel.h; sourceTree = "<group>"; };
+		F10944272181B21E006D85BC /* NewsListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListViewModel.m; sourceTree = "<group>"; };
+		F10944292181B22A006D85BC /* NewsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListModel.h; sourceTree = "<group>"; };
+		F109442A2181B22A006D85BC /* NewsListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListModel.m; sourceTree = "<group>"; };
+		F109442D2181B320006D85BC /* NewsListBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListBaseTableViewCell.h; sourceTree = "<group>"; };
+		F109442E2181B320006D85BC /* NewsListBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListBaseTableViewCell.m; sourceTree = "<group>"; };
+		F10944322181B567006D85BC /* AlarmListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListViewController.h; sourceTree = "<group>"; };
+		F10944332181B567006D85BC /* AlarmListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListViewController.m; sourceTree = "<group>"; };
+		F10944342181B567006D85BC /* AlarmListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListViewController.xib; sourceTree = "<group>"; };
+		F10944382181B600006D85BC /* AlarmListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListTableViewCell.h; sourceTree = "<group>"; };
+		F10944392181B600006D85BC /* AlarmListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListTableViewCell.m; sourceTree = "<group>"; };
 		F139CFDA1F53EB0B0076ACE3 /* requestURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = requestURL.h; path = ../requestURL.h; sourceTree = "<group>"; };
+		F144DB6F2191784A00D5D3D5 /* AlarmListQuickCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListQuickCell.h; sourceTree = "<group>"; };
+		F144DB702191784A00D5D3D5 /* AlarmListQuickCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListQuickCell.m; sourceTree = "<group>"; };
+		F144DB712191784A00D5D3D5 /* AlarmListQuickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListQuickCell.xib; sourceTree = "<group>"; };
+		F144DB742191786600D5D3D5 /* AlarmListNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListNormalCell.h; sourceTree = "<group>"; };
+		F144DB752191786600D5D3D5 /* AlarmListNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListNormalCell.m; sourceTree = "<group>"; };
+		F144DB762191786600D5D3D5 /* AlarmListNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListNormalCell.xib; sourceTree = "<group>"; };
 		F145C7291F692C4700CF2F49 /* CommentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewCell.h; sourceTree = "<group>"; };
 		F145C72A1F692C4700CF2F49 /* CommentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewCell.m; sourceTree = "<group>"; };
 		F145C72B1F692C4700CF2F49 /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
@@ -97,6 +129,10 @@
 		F18EB49B1F74D19200F117D6 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F18EB49C1F74D19200F117D6 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F18EB49D1F74D19200F117D6 /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
+		F1F75F5A2192D3AB00E8080C /* AlarmListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListViewModel.h; sourceTree = "<group>"; };
+		F1F75F5B2192D3AB00E8080C /* AlarmListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListViewModel.m; sourceTree = "<group>"; };
+		F1F75F5D2192D3BC00E8080C /* AlarmListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListModel.h; sourceTree = "<group>"; };
+		F1F75F5E2192D3BC00E8080C /* AlarmListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +185,10 @@
 		F107BDB71F4FF2550012C345 /* myApp */ = {
 			isa = PBXGroup;
 			children = (
+				F10944302181B4C1006D85BC /* AlarmyModule */,
 				F16667D61F531521004A3803 /* CommonModule */,
 				F18EB49A1F74D17900F117D6 /* MineModule */,
+				F109441F2181B198006D85BC /* NewsMoudule */,
 				F14FE21D1F5ABF7A00CB81E6 /* OnPlayModule */,
 				F107BDB81F4FF2550012C345 /* Supporting Files */,
 			);
@@ -160,7 +198,6 @@
 		F107BDB81F4FF2550012C345 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F10927601F68B6070057E84A /* 2017EN.txt */,
 				F107BDBB1F4FF2550012C345 /* AppDelegate.h */,
 				F107BDBC1F4FF2550012C345 /* AppDelegate.m */,
 				F107BDC41F4FF2550012C345 /* Assets.xcassets */,
@@ -169,6 +206,76 @@
 				F107BDB91F4FF2550012C345 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F109441F2181B198006D85BC /* NewsMoudule */ = {
+			isa = PBXGroup;
+			children = (
+				F10944202181B1D2006D85BC /* NewsList */,
+			);
+			path = NewsMoudule;
+			sourceTree = "<group>";
+		};
+		F10944202181B1D2006D85BC /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				F109442C2181B2E1006D85BC /* cells */,
+				F10944212181B205006D85BC /* NewsListViewController.h */,
+				F10944222181B205006D85BC /* NewsListViewController.m */,
+				F10944232181B205006D85BC /* NewsListViewController.xib */,
+				F10944262181B21E006D85BC /* NewsListViewModel.h */,
+				F10944272181B21E006D85BC /* NewsListViewModel.m */,
+				F10944292181B22A006D85BC /* NewsListModel.h */,
+				F109442A2181B22A006D85BC /* NewsListModel.m */,
+			);
+			path = NewsList;
+			sourceTree = "<group>";
+		};
+		F109442C2181B2E1006D85BC /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				F109442D2181B320006D85BC /* NewsListBaseTableViewCell.h */,
+				F109442E2181B320006D85BC /* NewsListBaseTableViewCell.m */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		F10944302181B4C1006D85BC /* AlarmyModule */ = {
+			isa = PBXGroup;
+			children = (
+				F10944312181B4E5006D85BC /* AlarmList */,
+			);
+			path = AlarmyModule;
+			sourceTree = "<group>";
+		};
+		F10944312181B4E5006D85BC /* AlarmList */ = {
+			isa = PBXGroup;
+			children = (
+				F10944372181B5E5006D85BC /* Cells */,
+				F10944322181B567006D85BC /* AlarmListViewController.h */,
+				F10944332181B567006D85BC /* AlarmListViewController.m */,
+				F10944342181B567006D85BC /* AlarmListViewController.xib */,
+				F1F75F5A2192D3AB00E8080C /* AlarmListViewModel.h */,
+				F1F75F5B2192D3AB00E8080C /* AlarmListViewModel.m */,
+				F1F75F5D2192D3BC00E8080C /* AlarmListModel.h */,
+				F1F75F5E2192D3BC00E8080C /* AlarmListModel.m */,
+			);
+			path = AlarmList;
+			sourceTree = "<group>";
+		};
+		F10944372181B5E5006D85BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F10944382181B600006D85BC /* AlarmListTableViewCell.h */,
+				F10944392181B600006D85BC /* AlarmListTableViewCell.m */,
+				F144DB742191786600D5D3D5 /* AlarmListNormalCell.h */,
+				F144DB752191786600D5D3D5 /* AlarmListNormalCell.m */,
+				F144DB762191786600D5D3D5 /* AlarmListNormalCell.xib */,
+				F144DB6F2191784A00D5D3D5 /* AlarmListQuickCell.h */,
+				F144DB702191784A00D5D3D5 /* AlarmListQuickCell.m */,
+				F144DB712191784A00D5D3D5 /* AlarmListQuickCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F14FE21D1F5ABF7A00CB81E6 /* OnPlayModule */ = {
@@ -306,15 +413,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10944362181B567006D85BC /* AlarmListViewController.xib in Resources */,
 				F14FE2331F5E9C4800CB81E6 /* MovieDetailViewController.xib in Resources */,
 				F107BDC81F4FF2550012C345 /* LaunchScreen.storyboard in Resources */,
+				F144DB732191784A00D5D3D5 /* AlarmListQuickCell.xib in Resources */,
 				F18EB49F1F74D19200F117D6 /* MineViewController.xib in Resources */,
+				F10944252181B205006D85BC /* NewsListViewController.xib in Resources */,
 				F1795A0B1F8B16D700A8F0A3 /* StageImageCollectionViewCell.xib in Resources */,
 				F107BDC51F4FF2550012C345 /* Assets.xcassets in Resources */,
+				F144DB782191786600D5D3D5 /* AlarmListNormalCell.xib in Resources */,
 				F145C7321F6A8D6200CF2F49 /* StoryTableViewCell.xib in Resources */,
 				F14FE22E1F5AC27800CB81E6 /* OnPlayTableViewCell.xib in Resources */,
 				F14FE2221F5ABF9A00CB81E6 /* OnPlayViewController.xib in Resources */,
-				F10927611F68B6070057E84A /* 2017EN.txt in Resources */,
 				F145C72D1F692C4700CF2F49 /* CommentsTableViewCell.xib in Resources */,
 				F1795A001F8B0D2800A8F0A3 /* StageImageViewController.xib in Resources */,
 			);
@@ -378,25 +488,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10944282181B21E006D85BC /* NewsListViewModel.m in Sources */,
 				F1795A061F8B0D5700A8F0A3 /* StageImageModel.m in Sources */,
 				F107BE0E1F50218D0012C345 /* NetworkTool.m in Sources */,
 				F14FE2211F5ABF9A00CB81E6 /* OnPlayViewController.m in Sources */,
+				F10944352181B567006D85BC /* AlarmListViewController.m in Sources */,
 				F14FE2321F5E9C4800CB81E6 /* MovieDetailViewController.m in Sources */,
 				F107BDBD1F4FF2550012C345 /* AppDelegate.m in Sources */,
 				F16667CC1F530ED2004A3803 /* CommonFunction.m in Sources */,
 				F1795A031F8B0D4700A8F0A3 /* StageImageViewMocel.m in Sources */,
 				F14FE2391F5EA79500CB81E6 /* MovieDetailModel.m in Sources */,
 				F14FE2281F5ABFD700CB81E6 /* OnPlayModel.m in Sources */,
+				F144DB772191786600D5D3D5 /* AlarmListNormalCell.m in Sources */,
 				F145C7311F6A8D6200CF2F49 /* StoryTableViewCell.m in Sources */,
+				F109443B2181B600006D85BC /* AlarmListTableViewCell.m in Sources */,
 				F14FE2251F5ABFC500CB81E6 /* OnPlayViewModel.m in Sources */,
 				F14FE22D1F5AC27800CB81E6 /* OnPlayTableViewCell.m in Sources */,
+				F144DB722191784A00D5D3D5 /* AlarmListQuickCell.m in Sources */,
 				F14FE2361F5EA77700CB81E6 /* MovieDetailViewModel.m in Sources */,
+				F109442B2181B22A006D85BC /* NewsListModel.m in Sources */,
 				F17959FF1F8B0D2800A8F0A3 /* StageImageViewController.m in Sources */,
 				F145C72C1F692C4700CF2F49 /* CommentsTableViewCell.m in Sources */,
 				F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */,
 				F107BDBA1F4FF2550012C345 /* main.m in Sources */,
 				F16667CF1F53145C004A3803 /* XJBaseViewController.m in Sources */,
+				F1F75F5C2192D3AB00E8080C /* AlarmListViewModel.m in Sources */,
+				F1F75F5F2192D3BC00E8080C /* AlarmListModel.m in Sources */,
 				F1795A0A1F8B16D700A8F0A3 /* StageImageCollectionViewCell.m in Sources */,
+				F109442F2181B320006D85BC /* NewsListBaseTableViewCell.m in Sources */,
+				F10944242181B205006D85BC /* NewsListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

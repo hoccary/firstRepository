@@ -20,6 +20,9 @@
     // Do any additional setup after loading the view from its nib.
     _titleArr = @[@"消息",@"设置",@"关于我们",@"版本号",];
     [self.view addSubview:self.mineTableView];
+    
+    
+    
 }
 
 - (UITableView *)mineTableView{

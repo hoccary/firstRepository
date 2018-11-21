@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "OnPlayViewController.h"
 #import "MineViewController.h"
+#import "AlarmListViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    OnPlayViewController *homeVC = [[OnPlayViewController alloc] init];
+    OnPlayViewController *homeVC = [OnPlayViewController new];
     UINavigationController *homeNavi = [[UINavigationController alloc] initWithRootViewController:homeVC];
     homeNavi.tabBarItem.title = @"主页";
     homeNavi.tabBarItem.image = [UIImage imageNamed:@"tabbarHome"] ;
@@ -29,8 +31,14 @@
     mineNavi.tabBarItem.title = @"我的";
     mineNavi.tabBarItem.image = [UIImage imageNamed:@"tabbarMine"];
     
+    //alarm模块
+    AlarmListViewController *alarmVC = [[AlarmListViewController alloc] init];
+    UINavigationController *alarmNavi = [[UINavigationController alloc] initWithRootViewController:alarmVC];
+    alarmNavi.tabBarItem.title = @"Alarmy";
+    alarmNavi.tabBarItem.image = [UIImage imageNamed:@"tabbarMine"];
+    
     UITabBarController *tabbarVC = [[UITabBarController alloc] init];
-    tabbarVC.viewControllers = @[homeNavi,mineNavi];
+    tabbarVC.viewControllers = @[homeNavi, alarmNavi, mineNavi];
     tabbarVC.tabBar.tintColor = AppTintColor;
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
