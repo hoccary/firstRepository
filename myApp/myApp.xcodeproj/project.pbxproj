@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		18E789DC9A72A719B3A3E654 /* libPods-myApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4D8A937AD462D12B94D263 /* libPods-myApp.a */; };
+		F101FFEC21A78851005C5A18 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F101FFE421A78851005C5A18 /* CommonFunction.m */; };
+		F101FFED21A78851005C5A18 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F101FFE521A78851005C5A18 /* NetworkTool.m */; };
+		F101FFEE21A78851005C5A18 /* XJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F101FFE721A78851005C5A18 /* XJBaseViewController.m */; };
 		F107BDBA1F4FF2550012C345 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F107BDB91F4FF2550012C345 /* main.m */; };
 		F107BDBD1F4FF2550012C345 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F107BDBC1F4FF2550012C345 /* AppDelegate.m */; };
 		F107BDC51F4FF2550012C345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F107BDC41F4FF2550012C345 /* Assets.xcassets */; };
 		F107BDC81F4FF2550012C345 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F107BDC61F4FF2550012C345 /* LaunchScreen.storyboard */; };
-		F107BE0E1F50218D0012C345 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F107BE0D1F50218D0012C345 /* NetworkTool.m */; };
 		F10944242181B205006D85BC /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10944222181B205006D85BC /* NewsListViewController.m */; };
 		F10944252181B205006D85BC /* NewsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10944232181B205006D85BC /* NewsListViewController.xib */; };
 		F10944282181B21E006D85BC /* NewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F10944272181B21E006D85BC /* NewsListViewModel.m */; };
@@ -39,8 +41,6 @@
 		F14FE2331F5E9C4800CB81E6 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14FE2311F5E9C4800CB81E6 /* MovieDetailViewController.xib */; };
 		F14FE2361F5EA77700CB81E6 /* MovieDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F14FE2351F5EA77700CB81E6 /* MovieDetailViewModel.m */; };
 		F14FE2391F5EA79500CB81E6 /* MovieDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F14FE2381F5EA79500CB81E6 /* MovieDetailModel.m */; };
-		F16667CC1F530ED2004A3803 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F16667CB1F530ED2004A3803 /* CommonFunction.m */; };
-		F16667CF1F53145C004A3803 /* XJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16667CE1F53145C004A3803 /* XJBaseViewController.m */; };
 		F17959FF1F8B0D2800A8F0A3 /* StageImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17959FD1F8B0D2800A8F0A3 /* StageImageViewController.m */; };
 		F1795A001F8B0D2800A8F0A3 /* StageImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17959FE1F8B0D2800A8F0A3 /* StageImageViewController.xib */; };
 		F1795A031F8B0D4700A8F0A3 /* StageImageViewMocel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1795A021F8B0D4700A8F0A3 /* StageImageViewMocel.m */; };
@@ -57,6 +57,15 @@
 		3B4D8A937AD462D12B94D263 /* libPods-myApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62229E56114327ECFA2EE7E7 /* Pods-myApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myApp/Pods-myApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A80F5683B28D72AC32B9E102 /* Pods-myApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-myApp/Pods-myApp.release.xcconfig"; sourceTree = "<group>"; };
+		F101FFE421A78851005C5A18 /* CommonFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunction.m; sourceTree = "<group>"; };
+		F101FFE521A78851005C5A18 /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
+		F101FFE621A78851005C5A18 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		F101FFE721A78851005C5A18 /* XJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJBaseViewController.m; sourceTree = "<group>"; };
+		F101FFE821A78851005C5A18 /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
+		F101FFE921A78851005C5A18 /* requestURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requestURL.h; sourceTree = "<group>"; };
+		F101FFEA21A78851005C5A18 /* XJBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJBaseViewController.h; sourceTree = "<group>"; };
+		F101FFEB21A78851005C5A18 /* CommonFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
+		F101FFEF21A7889C005C5A18 /* myPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myPrefixHeader.pch; sourceTree = "<group>"; };
 		F107BDB51F4FF2550012C345 /* myApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F107BDB91F4FF2550012C345 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F107BDBB1F4FF2550012C345 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,9 +73,6 @@
 		F107BDC41F4FF2550012C345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F107BDC71F4FF2550012C345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F107BDC91F4FF2550012C345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F107BDD11F500BCC0012C345 /* myPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myPrefixHeader.pch; path = ../myPrefixHeader.pch; sourceTree = "<group>"; };
-		F107BE0C1F50218D0012C345 /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTool.h; path = ../NetworkTool.h; sourceTree = "<group>"; };
-		F107BE0D1F50218D0012C345 /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkTool.m; path = ../NetworkTool.m; sourceTree = "<group>"; };
 		F10944212181B205006D85BC /* NewsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		F10944222181B205006D85BC /* NewsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		F10944232181B205006D85BC /* NewsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsListViewController.xib; sourceTree = "<group>"; };
@@ -81,7 +87,6 @@
 		F10944342181B567006D85BC /* AlarmListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListViewController.xib; sourceTree = "<group>"; };
 		F10944382181B600006D85BC /* AlarmListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListTableViewCell.h; sourceTree = "<group>"; };
 		F10944392181B600006D85BC /* AlarmListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListTableViewCell.m; sourceTree = "<group>"; };
-		F139CFDA1F53EB0B0076ACE3 /* requestURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = requestURL.h; path = ../requestURL.h; sourceTree = "<group>"; };
 		F144DB6F2191784A00D5D3D5 /* AlarmListQuickCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmListQuickCell.h; sourceTree = "<group>"; };
 		F144DB702191784A00D5D3D5 /* AlarmListQuickCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmListQuickCell.m; sourceTree = "<group>"; };
 		F144DB712191784A00D5D3D5 /* AlarmListQuickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListQuickCell.xib; sourceTree = "<group>"; };
@@ -111,11 +116,6 @@
 		F14FE2351F5EA77700CB81E6 /* MovieDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewModel.m; sourceTree = "<group>"; };
 		F14FE2371F5EA79500CB81E6 /* MovieDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailModel.h; sourceTree = "<group>"; };
 		F14FE2381F5EA79500CB81E6 /* MovieDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailModel.m; sourceTree = "<group>"; };
-		F16667C91F530D3D004A3803 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = ../const.h; sourceTree = "<group>"; };
-		F16667CA1F530ED2004A3803 /* CommonFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonFunction.h; path = ../CommonFunction.h; sourceTree = "<group>"; };
-		F16667CB1F530ED2004A3803 /* CommonFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonFunction.m; path = ../CommonFunction.m; sourceTree = "<group>"; };
-		F16667CD1F53145C004A3803 /* XJBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XJBaseViewController.h; path = ../XJBaseViewController.h; sourceTree = "<group>"; };
-		F16667CE1F53145C004A3803 /* XJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XJBaseViewController.m; path = ../XJBaseViewController.m; sourceTree = "<group>"; };
 		F17959FC1F8B0D2800A8F0A3 /* StageImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageImageViewController.h; sourceTree = "<group>"; };
 		F17959FD1F8B0D2800A8F0A3 /* StageImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageImageViewController.m; sourceTree = "<group>"; };
 		F17959FE1F8B0D2800A8F0A3 /* StageImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StageImageViewController.xib; sourceTree = "<group>"; };
@@ -201,6 +201,7 @@
 				F107BDBB1F4FF2550012C345 /* AppDelegate.h */,
 				F107BDBC1F4FF2550012C345 /* AppDelegate.m */,
 				F107BDC41F4FF2550012C345 /* Assets.xcassets */,
+				F101FFEF21A7889C005C5A18 /* myPrefixHeader.pch */,
 				F107BDC61F4FF2550012C345 /* LaunchScreen.storyboard */,
 				F107BDC91F4FF2550012C345 /* Info.plist */,
 				F107BDB91F4FF2550012C345 /* main.m */,
@@ -329,15 +330,14 @@
 		F16667D61F531521004A3803 /* CommonModule */ = {
 			isa = PBXGroup;
 			children = (
-				F107BE0C1F50218D0012C345 /* NetworkTool.h */,
-				F107BE0D1F50218D0012C345 /* NetworkTool.m */,
-				F16667CA1F530ED2004A3803 /* CommonFunction.h */,
-				F16667CB1F530ED2004A3803 /* CommonFunction.m */,
-				F16667CD1F53145C004A3803 /* XJBaseViewController.h */,
-				F16667CE1F53145C004A3803 /* XJBaseViewController.m */,
-				F107BDD11F500BCC0012C345 /* myPrefixHeader.pch */,
-				F139CFDA1F53EB0B0076ACE3 /* requestURL.h */,
-				F16667C91F530D3D004A3803 /* const.h */,
+				F101FFEB21A78851005C5A18 /* CommonFunction.h */,
+				F101FFE421A78851005C5A18 /* CommonFunction.m */,
+				F101FFE621A78851005C5A18 /* const.h */,
+				F101FFE821A78851005C5A18 /* NetworkTool.h */,
+				F101FFE521A78851005C5A18 /* NetworkTool.m */,
+				F101FFE921A78851005C5A18 /* requestURL.h */,
+				F101FFEA21A78851005C5A18 /* XJBaseViewController.h */,
+				F101FFE721A78851005C5A18 /* XJBaseViewController.m */,
 			);
 			path = CommonModule;
 			sourceTree = "<group>";
@@ -490,18 +490,18 @@
 			files = (
 				F10944282181B21E006D85BC /* NewsListViewModel.m in Sources */,
 				F1795A061F8B0D5700A8F0A3 /* StageImageModel.m in Sources */,
-				F107BE0E1F50218D0012C345 /* NetworkTool.m in Sources */,
 				F14FE2211F5ABF9A00CB81E6 /* OnPlayViewController.m in Sources */,
 				F10944352181B567006D85BC /* AlarmListViewController.m in Sources */,
 				F14FE2321F5E9C4800CB81E6 /* MovieDetailViewController.m in Sources */,
 				F107BDBD1F4FF2550012C345 /* AppDelegate.m in Sources */,
-				F16667CC1F530ED2004A3803 /* CommonFunction.m in Sources */,
 				F1795A031F8B0D4700A8F0A3 /* StageImageViewMocel.m in Sources */,
 				F14FE2391F5EA79500CB81E6 /* MovieDetailModel.m in Sources */,
 				F14FE2281F5ABFD700CB81E6 /* OnPlayModel.m in Sources */,
 				F144DB772191786600D5D3D5 /* AlarmListNormalCell.m in Sources */,
 				F145C7311F6A8D6200CF2F49 /* StoryTableViewCell.m in Sources */,
+				F101FFEE21A78851005C5A18 /* XJBaseViewController.m in Sources */,
 				F109443B2181B600006D85BC /* AlarmListTableViewCell.m in Sources */,
+				F101FFEC21A78851005C5A18 /* CommonFunction.m in Sources */,
 				F14FE2251F5ABFC500CB81E6 /* OnPlayViewModel.m in Sources */,
 				F14FE22D1F5AC27800CB81E6 /* OnPlayTableViewCell.m in Sources */,
 				F144DB722191784A00D5D3D5 /* AlarmListQuickCell.m in Sources */,
@@ -509,9 +509,9 @@
 				F109442B2181B22A006D85BC /* NewsListModel.m in Sources */,
 				F17959FF1F8B0D2800A8F0A3 /* StageImageViewController.m in Sources */,
 				F145C72C1F692C4700CF2F49 /* CommentsTableViewCell.m in Sources */,
+				F101FFED21A78851005C5A18 /* NetworkTool.m in Sources */,
 				F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */,
 				F107BDBA1F4FF2550012C345 /* main.m in Sources */,
-				F16667CF1F53145C004A3803 /* XJBaseViewController.m in Sources */,
 				F1F75F5C2192D3AB00E8080C /* AlarmListViewModel.m in Sources */,
 				F1F75F5F2192D3BC00E8080C /* AlarmListModel.m in Sources */,
 				F1795A0A1F8B16D700A8F0A3 /* StageImageCollectionViewCell.m in Sources */,
