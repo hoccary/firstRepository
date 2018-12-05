@@ -21,6 +21,9 @@
 @interface AlarmListModel : NSObject
 @property (nonatomic, assign) NSInteger alarmType;
 @property (nonatomic, copy) NSString *alartTime;
+/*
+ 重复日,eg: @"alartWeekdays": @[@0, @1, @0, @0, @0, @0, @0],
+ */
 @property (nonatomic, strong) NSArray *alartWeekdays;
 @property (nonatomic, copy) NSString *ringTuneName;
 @property (nonatomic, assign) NSInteger volume;
