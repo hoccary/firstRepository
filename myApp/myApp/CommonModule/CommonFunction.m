@@ -10,6 +10,7 @@
 
 @implementation CommonFunction
 
+//根据文字计算cell高度
 + (CGFloat)calHeightForText:(NSString*)text{
     return [CommonFunction calHeightForText:text fontSize:14 labelWidth:kScreenWidth - 20];
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		18E789DC9A72A719B3A3E654 /* libPods-myApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4D8A937AD462D12B94D263 /* libPods-myApp.a */; };
+		1F8E27E921AD8F120053FE39 /* AddAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E27E721AD8F120053FE39 /* AddAlarmViewController.m */; };
+		1F8E27EA21AD8F120053FE39 /* AddAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8E27E821AD8F120053FE39 /* AddAlarmViewController.xib */; };
 		F101FFEC21A78851005C5A18 /* CommonFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F101FFE421A78851005C5A18 /* CommonFunction.m */; };
 		F101FFED21A78851005C5A18 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F101FFE521A78851005C5A18 /* NetworkTool.m */; };
 		F101FFEE21A78851005C5A18 /* XJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F101FFE721A78851005C5A18 /* XJBaseViewController.m */; };
@@ -54,6 +56,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F8E27E621AD8F120053FE39 /* AddAlarmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAlarmViewController.h; sourceTree = "<group>"; };
+		1F8E27E721AD8F120053FE39 /* AddAlarmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAlarmViewController.m; sourceTree = "<group>"; };
+		1F8E27E821AD8F120053FE39 /* AddAlarmViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAlarmViewController.xib; sourceTree = "<group>"; };
 		3B4D8A937AD462D12B94D263 /* libPods-myApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62229E56114327ECFA2EE7E7 /* Pods-myApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myApp/Pods-myApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A80F5683B28D72AC32B9E102 /* Pods-myApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-myApp/Pods-myApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +160,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1F8E27E521AD8EF90053FE39 /* AddAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				1F8E27E621AD8F120053FE39 /* AddAlarmViewController.h */,
+				1F8E27E721AD8F120053FE39 /* AddAlarmViewController.m */,
+				1F8E27E821AD8F120053FE39 /* AddAlarmViewController.xib */,
+			);
+			path = AddAlarm;
+			sourceTree = "<group>";
+		};
 		427DE12A77E225781E95EC97 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +259,7 @@
 		F10944302181B4C1006D85BC /* AlarmyModule */ = {
 			isa = PBXGroup;
 			children = (
+				1F8E27E521AD8EF90053FE39 /* AddAlarm */,
 				F10944312181B4E5006D85BC /* AlarmList */,
 			);
 			path = AlarmyModule;
@@ -413,6 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8E27EA21AD8F120053FE39 /* AddAlarmViewController.xib in Resources */,
 				F10944362181B567006D85BC /* AlarmListViewController.xib in Resources */,
 				F14FE2331F5E9C4800CB81E6 /* MovieDetailViewController.xib in Resources */,
 				F107BDC81F4FF2550012C345 /* LaunchScreen.storyboard in Resources */,
@@ -512,6 +529,7 @@
 				F101FFED21A78851005C5A18 /* NetworkTool.m in Sources */,
 				F18EB49E1F74D19200F117D6 /* MineViewController.m in Sources */,
 				F107BDBA1F4FF2550012C345 /* main.m in Sources */,
+				1F8E27E921AD8F120053FE39 /* AddAlarmViewController.m in Sources */,
 				F1F75F5C2192D3AB00E8080C /* AlarmListViewModel.m in Sources */,
 				F1F75F5F2192D3BC00E8080C /* AlarmListModel.m in Sources */,
 				F1795A0A1F8B16D700A8F0A3 /* StageImageCollectionViewCell.m in Sources */,

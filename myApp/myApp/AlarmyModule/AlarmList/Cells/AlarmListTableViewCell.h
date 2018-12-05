@@ -13,11 +13,11 @@ static const CGFloat CellHeightForAlarmList = 150;
 @interface AlarmListTableViewCell : UITableViewCell
 
 //两种cell类型
-typedef NS_ENUM(NSUInteger, AlarmListTableViewCellType) {
-    AlarmListTableViewCellTypeQuick,
-    AlarmListTableViewCellTypeNormal
+typedef NS_ENUM(NSUInteger, AlarmyType) {
+    AlarmyTypeQuick,
+    AlarmyTypeNormal
 };
-+ (AlarmListTableViewCell*)cellWithType:(AlarmListTableViewCellType)type;
++ (AlarmListTableViewCell*)cellWithType:(AlarmyType)type;
 
 - (void)setupWithModel:(AlarmListModel*)model;
 - (void)setAlarmWeekdays:(NSArray*)arr;

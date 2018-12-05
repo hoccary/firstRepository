@@ -10,7 +10,7 @@
 #import "AlarmListQuickCell.h"
 #import "AlarmListNormalCell.h"
 
-@interface AlarmListTableViewCell()
+@interface AlarmListTableViewCell ()
 @property (nonatomic, strong) UIView *contentBackgroundView;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UISwitch *switchBtn;
@@ -24,47 +24,53 @@
 
 @implementation AlarmListTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
-- (instancetype)init{
-    if(self = [super init]){
+- (instancetype)init
+{
+    if (self = [super init]) {
         [self initUI];
     }
     return self;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self initUI];
     }
     return self;
 }
 
-+ (AlarmListTableViewCell*)cellWithType:(AlarmListTableViewCellType)type{
-    switch (type){
-            case AlarmListTableViewCellTypeQuick:
-                return [AlarmListQuickCell new];
-                break;
-            case AlarmListTableViewCellTypeNormal:
-                return [AlarmListNormalCell new];
-                break;
++ (AlarmListTableViewCell *)cellWithType:(AlarmyType)type
+{
+    switch (type) {
+        case AlarmyTypeQuick:
+            return [AlarmListQuickCell new];
+            break;
+        case AlarmyTypeNormal:
+            return [AlarmListNormalCell new];
+            break;
     }
 }
 
-- (void)initUI{
+- (void)initUI
+{
     self.backgroundColor = UIColor.clearColor;
     self.contentView.backgroundColor = UIColor.clearColor;
     self.weekdaysLabelsArray = [NSMutableArray new];
-    _weekDaysArray = @[@0,@0,@0,@0,@0,@0,@0];
+    _weekDaysArray = @[@0, @0, @0, @0, @0, @0, @0];
     [self addSubview:self.contentBackgroundView];
     [self addSubview:self.timeLabel];
     [self addSubview:self.switchBtn];
@@ -73,9 +79,10 @@
     [self addWeekdaysLabels];
 }
 
-- (void)addWeekdaysLabels{
-    NSArray *arr = @[@"日",@"一",@"二",@"三",@"四",@"五",@"六"];
-    for(int i = 0; i != self.weekDaysArray.count; i++){
+- (void)addWeekdaysLabels
+{
+    NSArray *arr = @[@"日", @"一", @"二", @"三", @"四", @"五", @"六"];
+    for (int i = 0; i != self.weekDaysArray.count; i++) {
         UILabel *tmpLabel = [UILabel new];
         tmpLabel.frame = CGRectMake(70 + 20 * i, CellHeightForAlarmList - 45, 20, 20);
         tmpLabel.text = arr[i];
@@ -85,37 +92,43 @@
         [_weekdaysLabelsArray addObject:tmpLabel];
     }
 }
+
 #pragma mark - headMethod
-- (void)setupWithModel:(AlarmListModel*)model{
+- (void)setupWithModel:(AlarmListModel *)model
+{
     [self setAlarmWeekdays:model.alartWeekdays];
     [self setTime:model.alartTime];
     [self setSwitchState:model.isValidate];
 }
 
-- (void)setAlarmWeekdays:(NSArray*)arr{
-    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if([obj integerValue] == 1){
+- (void)setAlarmWeekdays:(NSArray *)arr
+{
+    [arr enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+        if ([obj integerValue] == 1) {
             UILabel *tLabel = _weekdaysLabelsArray[idx];
             tLabel.textColor = UIColor.lightGrayColor;
         }
     }];
 }
 
-- (void)setTime:(NSString*)str{
+- (void)setTime:(NSString *)str
+{
     self.timeLabel.text = str;
 }
 
-- (void)setSwitchState:(NSInteger)isValidate{
+- (void)setSwitchState:(NSInteger)isValidate
+{
     if (isValidate == 1) {
         [self.switchBtn setOn:YES];
-    }else{
+    } else {
         [self.switchBtn setOn:NO];
     }
 }
 
 #pragma mark - Lazyload
--(UILabel *)timeLabel{
-    if(!_timeLabel){
+- (UILabel *)timeLabel
+{
+    if (!_timeLabel) {
         _timeLabel = [UILabel new];
         _timeLabel.frame = CGRectMake(45, 25, 150, 50);
         _timeLabel.text = @"08:00";
@@ -126,14 +139,15 @@
     return _timeLabel;
 }
 
-- (UIView *)contentBackgroundView{
-    if(!_contentBackgroundView){
+- (UIView *)contentBackgroundView
+{
+    if (!_contentBackgroundView) {
         _contentBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(20, 10, kScreenWidth - 40, CellHeightForAlarmList - 20)];
         _contentBackgroundView.backgroundColor = UIColor.whiteColor;
         _contentBackgroundView.alpha = 0.3;
         _contentBackgroundView.layer.cornerRadius = 10;
         _contentBackgroundView.layer.masksToBounds = YES;
-        
+
         UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 80, _contentBackgroundView.frame.size.width, _contentBackgroundView.frame.size.height - 80)];
         bottomView.backgroundColor = UIColor.lightGrayColor;
         [_contentBackgroundView addSubview:bottomView];
@@ -141,30 +155,34 @@
     return _contentBackgroundView;
 }
 
-- (UISwitch *)switchBtn{
-    if(!_switchBtn){
+- (UISwitch *)switchBtn
+{
+    if (!_switchBtn) {
         _switchBtn = [[UISwitch alloc] init];
-        _switchBtn.center = CGPointMake(kScreenWidth-110, 50);
+        _switchBtn.center = CGPointMake(kScreenWidth - 110, 50);
     }
     return _switchBtn;
 }
 
-- (UIImageView *)moreBtn{
-    if(!_moreBtn){
+- (UIImageView *)moreBtn
+{
+    if (!_moreBtn) {
         _moreBtn = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moreBtn"]];
-        _moreBtn.center = CGPointMake(kScreenWidth-50, 50);
+        _moreBtn.center = CGPointMake(kScreenWidth - 50, 50);
     }
     return _moreBtn;
 }
 
-- (UIImageView *)alarmIcon{
-    if(!_alarmIcon){
+- (UIImageView *)alarmIcon
+{
+    if (!_alarmIcon) {
         _alarmIcon = [UIImageView new];
         _alarmIcon.frame = CGRectMake(45, CellHeightForAlarmList - 45, 20, 20);
         _alarmIcon.image = [UIImage imageNamed:@"alarmIcon"];
     }
     return _alarmIcon;
 }
+
 //
 //- (UILabel *)weekDaysLabel{
 //    if(!_weekDaysLabel){

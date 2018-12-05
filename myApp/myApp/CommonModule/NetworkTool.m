@@ -8,7 +8,6 @@
 
 #import "NetworkTool.h"
 
-
 @implementation NetworkTool
 
 //单例化
@@ -21,9 +20,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkTool)
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
+
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:params error:nil];
-    
+
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);
@@ -33,7 +32,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkTool)
             successBlock(responseObject);
         }
     }];
-    
+
     [dataTask resume];
 }
 
@@ -52,11 +51,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkTool)
 //    }else{
 //        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: URLString]];
 //        [[FlyImageDownloader sharedInstance] downloadImageForURLRequest:request progress:nil success:^(NSURLRequest *request, NSURL *filePath) {
-//            
+//
 //            [[FlyImageCache sharedInstance] addImageWithKey:key filename:[filePath lastPathComponent] completed:^(NSString *key, UIImage *image) {
 //                successBlock(image);
 //            }];
-//            
+//
 //        } failed:^(NSURLRequest *request, NSError *error) {
 //            NSLog(@"occur error = %@", error );
 //            failBlock(error);
@@ -64,42 +63,42 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkTool)
 //    }
 //}
 
-
-
-- (void)downloadFromUrl:(NSString*)serviceURL
-               filePath:(NSString*)downloadedPath
-                success:(void(^)(NSString *downloadedPath))successBlock
-                   fail:(void(^)(NSError *error))failBlock{
+- (void)downloadFromUrl:(NSString *)serviceURL
+               filePath:(NSString *)downloadedPath
+                success:(void (^)(NSString *downloadedPath))successBlock
+                   fail:(void (^)(NSError *error))failBlock
+{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
+
     NSURL *URL = [NSURL URLWithString:serviceURL];  //下载地址
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
+
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request
                                                                      progress:nil
                                                                   destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-                                                                      NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
-                                                                                                                                            inDomain:NSUserDomainMask
-                                                                                                                                   appropriateForURL:nil
-                                                                                                                                              create:NO
-                                                                                                                                               error:nil
-                                                                                                      ];
-                                                                      if(downloadedPath){
-                                                                          return [NSURL URLWithString:downloadedPath];
-                                                                      }else{
-                                                                          return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
-                                                                      }
-                                                                  }
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
+                                                                              inDomain:NSUserDomainMask
+                                                                     appropriateForURL:nil
+                                                                                create:NO
+                                                                                 error:nil
+            ];
+        if (downloadedPath) {
+            return [NSURL URLWithString:downloadedPath];
+        } else {
+            return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        }
+    }
                                                             completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-                                                                if(error){
-                                                                    NSLog(@"Fail to download from: %@", serviceURL);
-                                                                    failBlock(error);
-                                                                }else{
-                                                                    NSLog(@"File downloaded to: %@", filePath);
-                                                                    successBlock(downloadedPath);
-                                                                }
-                                                            }];
+        if (error) {
+            NSLog(@"Fail to download from: %@", serviceURL);
+            failBlock(error);
+        } else {
+            NSLog(@"File downloaded to: %@", filePath);
+            successBlock(downloadedPath);
+        }
+    }];
     [downloadTask resume];
 }
+
 @end
