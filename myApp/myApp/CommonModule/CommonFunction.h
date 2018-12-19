@@ -13,5 +13,5 @@
                    fontSize:(NSInteger)fontSize
                  labelWidth:(CGFloat)labelWidth;
 + (CGFloat)calHeightForText:(NSString*)text;
-
++ (NSString *)alarmyListFilePath;
 @end

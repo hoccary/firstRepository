@@ -12,9 +12,15 @@
 - (instancetype)initWithDic:(NSDictionary *)dic
 {
     if (self = [super init]) {
+        _alarmType = [dic[@"alarmType"] integerValue];
         _alartTime = dic[@"alartTime"];
         _alartWeekdays = dic[@"alartWeekdays"];
-        _isValidate = [dic[@"isValidate"] integerValue];
+        _ringTuneName = dic[@"ringTuneName"];
+        _volume = [dic[@"alarmType"] integerValue];
+        _isShock = [dic[@"isShock"] integerValue];
+        _sneapTime = [dic[@"alarmType"] integerValue];
+        _isValidate = [dic[@"alarmType"] integerValue];
+        _remark = dic[@"alarmType"];
     }
     return self;
 }

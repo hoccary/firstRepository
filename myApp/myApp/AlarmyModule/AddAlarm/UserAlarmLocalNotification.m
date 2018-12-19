@@ -12,7 +12,7 @@
 //使用 UNNotification 本地通知
 SYNTHESIZE_SINGLETON_FOR_CLASS(UserAlarmLocalNotification)
 
-+ (void)registerNotification:(NSInteger)alerTime
+- (void)registerNotification:(NSInteger)alerTime
 {
     // 使用 UNUserNotificationCenter 来管理通知
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
@@ -33,9 +33,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(UserAlarmLocalNotification)
 
     //添加推送成功后的处理！
     [center addNotificationRequest:request withCompletionHandler:^(NSError *_Nullable error) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"本地通知" message:@"成功添加推送" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:cancelAction];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oo.Alarmy.oO" message:@"成功添加推送" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:sureAction];
         [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
     }];
 }

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserAlarmLocalNotification : NSObject
 PROPERTY_SINGLETON_FOR_CLASS(UserAlarmLocalNotification)
-+ (void)registerNotification:(NSInteger)alerTime;
+- (void)registerNotification:(NSInteger)alerTime;
 @end
 
 NS_ASSUME_NONNULL_END

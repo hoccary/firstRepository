@@ -22,4 +22,17 @@
     CGRect rect = [text boundingRectWithSize:CGSizeMake(labelWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]} context:nil];
     return rect.size.height+20;
 }
+
++ (NSString *)alarmyListFilePath{
+    
+    //查找Document目录并在其后附加数据文件的文件名，这样就得到了数据文件的完整的路径
+    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(
+//                                                         NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    return [kPathDocument stringByAppendingPathComponent:@"alarmyList.plist"];
+    
+    
+}
 @end

@@ -10,6 +10,7 @@
 #import "AlarmListNormalCell.h"
 #import "AlarmListModel.h"
 #import "AddAlarmViewController.h"
+#import "UserAlarmLocalNotification.h"
 
 @interface AlarmListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *alarmListTableView;
@@ -29,14 +30,31 @@ static NSString *const AlarmListTableViewCellId = @"AlarmListTableViewCell";
     [self initModelList];
     [self.view addSubview:self.alarmListTableView];
     [self.view addSubview:self.addButton];
+    [[UserAlarmLocalNotification sharedUserAlarmLocalNotification] registerNotification:10];
 }
 
 - (void)initModelList
 {
-    AlarmListModel *model = [[AlarmListModel alloc] initWithDic:@{ @"alartTime": @"08:30",
-                                                                   @"alartWeekdays": @[@0, @1, @0, @0, @0, @0, @0],
-                                                                   @"isValidate": @1 }];
-    _modelList = @[model];
+    NSString *filePath = [CommonFunction alarmyListFilePath];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
+    }
+    _modelList = [NSMutableArray arrayWithContentsOfFile:[CommonFunction alarmyListFilePath]];
+    if(_modelList.count == 0){
+        _modelList = @[];
+    }
+//    AlarmListModel *model = [[AlarmListModel alloc] initWithDic:@{
+//                                                                   @"alarmType": @1,
+//                                                                   @"alartTime": @"08:30",
+//                                                                   @"alartWeekdays": @[@0, @1, @0, @0, @0, @0, @0],
+//                                                                   @"ringTuneName": @"",
+//                                                                   @"volume": @1,
+//                                                                   @"isShock": @0,
+//                                                                   @"sneapTime": @0,
+//                                                                   @"isValidate": @1,
+//                                                                   @"remark": @"aaaa",
+//                                                                   }];
+//    _modelList = @[model];
 }
 
 - (void)createClock
@@ -97,4 +115,12 @@ static NSString *const AlarmListTableViewCellId = @"AlarmListTableViewCell";
     return _addButton;
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated{
+    NSMutableArray *arr = [NSMutableArray new];
+    [_modelList enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [arr addObject:[(AlarmListModel*)_modelList[idx] covertToDic]];
+    }];
+    [arr writeToFile:[CommonFunction alarmyListFilePath] atomically:YES];
+}
 @end

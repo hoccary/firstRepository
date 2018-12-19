@@ -42,6 +42,20 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+//时间选择器时间变化
+- (IBAction)timePickerEditingDidEnd:(id)sender {
+    
+}
+
+//音量slider变化
+- (IBAction)volumeSliderEditingDidEnd:(id)sender {
+    
+}
+
+//textfiled编辑结束
+- (IBAction)commentTFEditingDidEnd:(id)sender {
+}
+
 - (IBAction)complete:(id)sender
 {
     //some code
