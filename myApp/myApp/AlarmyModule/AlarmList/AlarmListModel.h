@@ -19,7 +19,7 @@
     标签备注
  */
 @interface AlarmListModel : NSObject
-@property (nonatomic, assign) NSInteger alarmType;
+@property (nonatomic, assign) NSInteger alarmType; //0|1
 @property (nonatomic, copy) NSString *alartTime;
 /*
  重复日,eg: @"alartWeekdays": @[@0, @1, @0, @0, @0, @0, @0],
