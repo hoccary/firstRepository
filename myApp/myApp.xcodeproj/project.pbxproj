@@ -212,10 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				F10944302181B4C1006D85BC /* AlarmyModule */,
-				F16667D61F531521004A3803 /* CommonModule */,
 				F18EB49A1F74D17900F117D6 /* MineModule */,
 				F109441F2181B198006D85BC /* NewsMoudule */,
 				F14FE21D1F5ABF7A00CB81E6 /* OnPlayModule */,
+				F16667D61F531521004A3803 /* CommonModule */,
 				F107BDB81F4FF2550012C345 /* Supporting Files */,
 			);
 			path = myApp;

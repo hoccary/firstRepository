@@ -19,6 +19,7 @@
 @property (assign,nonatomic) CGAffineTransform loadingtransform;
 @property (assign,nonatomic) NSInteger isLoading;
 @property (strong,nonatomic) UIView *HightestRatingView;
+@property (strong,nonatomic) UILabel *failLabel;
 @end
 
 @implementation OnPlayViewController
@@ -33,12 +34,6 @@
 
     [self.view addSubview:self.OnPlayTableView];
     [_OnPlayTableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-    
-    [[NetworkTool sharedNetworkTool] GetFromUrl:@"http://127.0.0.1:10010/base/persons" URLparams:nil success:^(id responseObject) {
-        NSLog(@"success");
-    } fail:^(NSError *error) {
-        NSLog(@"fail");
-    }];
 }
 
 - (NSInteger)naviAndTabState{
@@ -56,11 +51,6 @@
 
 - (void)loadData{
     _isLoading = 1;
-    [_selfVM getFormSwaggerApiDic:nil success:^(NSDictionary *dic) {
-        
-    } fail:^(NSError *error) {
-        
-    }];
     [_selfVM requestOnPlayListWithDic:nil success:^(NSDictionary *dic) {
         NSArray *list = dic[@"ms"];
         __block NSMutableArray *tmpList = [[NSMutableArray alloc] init];
@@ -79,10 +69,19 @@
         }];
         _movieList = tmpList;
         [self refreshHeaderWithModel:maxRateModel];
+        [_failLabel removeFromSuperview];
         [_OnPlayTableView reloadData];
         _isLoading = 0;
     } fail:^(NSError *error) {
         _isLoading = 0;
+        //添加失败标签
+        _failLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+        _failLabel.text = @"加载失败，请下拉刷新";
+        //        failLabel.font = [UIFont systemFontOfSize:11];
+        _failLabel.textColor = UIColor.lightTextColor;
+        _failLabel.textAlignment = NSTextAlignmentCenter;
+        _failLabel.center = self.view.center;
+        [self.OnPlayTableView addSubview:_failLabel];
     }];
 }
 
