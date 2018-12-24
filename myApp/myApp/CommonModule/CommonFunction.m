@@ -36,5 +36,20 @@
     
 }
 
+//从nsdate转换到string
++ (NSString*)convertDateToString:(NSDate*)date {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [dateFormatter stringFromDate:date];
+}
 
++ (NSInteger)getTheWeekday{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *now;
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |NSCalendarUnitWeekday | NSCalendarUnitHour|NSCalendarUnitMinute | NSCalendarUnitSecond;
+    now = [NSDate date];
+    comps = [calendar components:unitFlags fromDate:now];
+    return [comps weekday];
+}
 @end

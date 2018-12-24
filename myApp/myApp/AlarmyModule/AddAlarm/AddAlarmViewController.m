@@ -36,7 +36,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *completeBtn;
 //数据
 @property (strong, nonatomic) AlarmListModel *AlarmModel;
-@property (strong, nonatomic) NSArray *tmpWeekdaysArr;
+@property (strong, nonatomic) NSMutableArray *tmpWeekdaysArr;
 
 @end
 
@@ -73,6 +73,7 @@
     }];
 
     [_sneapySelecter setViewActionWithBlock:^{
+        
     }];
 
     [_soundSelecter setViewActionWithBlock:^{
@@ -80,13 +81,15 @@
 
     [_repeatSelecter setViewActionWithBlock:^{
         [self.view addSubview:self.selectWeekdaysTabelView];
+        [self.selectWeekdaysTabelView dw_popup];
+        
     }];
 }
 
 //时间选择器时间变化
 - (IBAction)timePickerValueChanged:(id)sender
 {
-    _AlarmModel.alartTime = [NSString stringWithFormat:@"%@", _timePicker.date];
+    _AlarmModel.alartTime = [CommonFunction convertDateToString:_timePicker.date];
 }
 
 //音量slider变化
@@ -116,11 +119,19 @@
 - (UITableView *)selectWeekdaysTabelView
 {
     if (!_selectWeekdaysTabelView) {
-        _tmpWeekdaysArr = @[@0, @0, @0, @0, @0, @0, @0];
-        _selectWeekdaysTabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 100, 300)];
+        //只有当列表出现时才初始化arr
+        _tmpWeekdaysArr = [NSMutableArray arrayWithArray:@[@0, @0, @0, @0, @0, @0, @0]];
+        
+        _selectWeekdaysTabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 100, 380)];
         _selectWeekdaysTabelView.center = self.view.center;
         _selectWeekdaysTabelView.delegate = self;
         _selectWeekdaysTabelView.dataSource = self;
+        _selectWeekdaysTabelView.rowHeight = 40;
+        _selectWeekdaysTabelView.scrollEnabled = NO;
+        [_selectWeekdaysTabelView makeCornerWithColor:UIColor.blueColor andRadius:10];
+
+        
+        /* headerView */
         //设置headerview，左边是工作日，右边是周末
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _selectWeekdaysTabelView.bounds.size.width, 50)];
         UILabel *weekdaysBtn = [UILabel new];
@@ -129,8 +140,16 @@
         weekdaysBtn.textAlignment = NSTextAlignmentCenter;
         weekdaysBtn.userInteractionEnabled = YES;
         [weekdaysBtn setViewActionWithBlock:^{
-            for (int i = 1; i != 6; i++) {
-                [self selectCellInWeekdaysTabelViewOfNumber:i];
+            if([[_tmpWeekdaysArr subarrayWithRange:NSMakeRange(1, 5)] containsObject:@0]){
+                for (int i = 1; i != 6; i++) {
+                    self.tmpWeekdaysArr[i] = @1;
+                }
+                [_selectWeekdaysTabelView reloadData];
+            }else{
+                for (int i = 1; i != 6; i++) {
+                    self.tmpWeekdaysArr[i] = @0;
+                }
+                [_selectWeekdaysTabelView reloadData];
             }
         }];
 
@@ -140,13 +159,49 @@
         weekendsBtn.textAlignment = NSTextAlignmentCenter;
         weekendsBtn.userInteractionEnabled = YES;
         [weekendsBtn setViewActionWithBlock:^{
-            [self selectCellInWeekdaysTabelViewOfNumber:6];
-            [self selectCellInWeekdaysTabelViewOfNumber:0];
+            if([_tmpWeekdaysArr[0] integerValue] == 0 || [_tmpWeekdaysArr[6] integerValue] == 0){
+                _tmpWeekdaysArr[0] = @1;
+                _tmpWeekdaysArr[6] = @1;
+                [_selectWeekdaysTabelView reloadData];
+            }else{
+                _tmpWeekdaysArr[0] = @0;
+                _tmpWeekdaysArr[6] = @0;
+                [_selectWeekdaysTabelView reloadData];
+            }
         }];
 
         [headerView addSubview:weekdaysBtn];
         [headerView addSubview:weekendsBtn];
         _selectWeekdaysTabelView.tableHeaderView = headerView;
+        
+        
+        /* footerView
+         * 左边是取消 右边是确定
+         */
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _selectWeekdaysTabelView.bounds.size.width, 50)];
+        UILabel *footCancelBtn = [UILabel new];
+        footCancelBtn.frame = CGRectMake(5, 5, footerView.frame.size.width / 2 - 10, footerView.frame.size.height - 10);
+        footCancelBtn.text = @"取消";
+        footCancelBtn.textAlignment = NSTextAlignmentCenter;
+        footCancelBtn.userInteractionEnabled = YES;
+        [footCancelBtn setViewActionWithBlock:^{
+            [_selectWeekdaysTabelView dw_shadeOff];
+        }];
+        
+        UILabel *footSureBtn = [UILabel new];
+        footSureBtn.text = @"确定";
+        footSureBtn.frame = CGRectMake(footerView.frame.size.width / 2 + 5, 5, footerView.frame.size.width / 2 - 10, footerView.frame.size.height - 10);
+        footSureBtn.textAlignment = NSTextAlignmentCenter;
+        footSureBtn.userInteractionEnabled = YES;
+        [footSureBtn setViewActionWithBlock:^{
+            [_selectWeekdaysTabelView dw_shadeOff];
+        }];
+        
+        [footerView addSubview:footCancelBtn];
+        [footerView addSubview:footSureBtn];
+        _selectWeekdaysTabelView.tableFooterView = footerView;
+        
+        _selectWeekdaysTabelView.backgroundColor = UIColor.purpleColor;
     }
     return _selectWeekdaysTabelView;
 }
@@ -156,7 +211,7 @@
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"weekdaysCell"];
     cell.textLabel.text = @[@"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六"][indexPath.row];
-    cell.detailTextLabel.text = @"";
+    cell.detailTextLabel.text = [self.tmpWeekdaysArr[indexPath.row] integerValue] == 1 ?@"✓": @"";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -168,29 +223,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if ([cell.detailTextLabel.text isEqualToString:@""]) {
-        cell.detailTextLabel.text = @"✓";
-    } else {
-        cell.detailTextLabel.text = @"";
-    }
-}
-
-- (void)selectCellInWeekdaysTabelViewOfNumber:(NSInteger)index
-{
-    UITableViewCell *cell = [_selectWeekdaysTabelView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-    cell.detailTextLabel.text = @"✓";
-}
-
-- (void)deselectCellInWeekdaysTabelViewOfNumber:(NSInteger)index
-{
-    UITableViewCell *cell = [_selectWeekdaysTabelView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-    cell.detailTextLabel.text = @"";
-}
-
-- (void)setTmpWeekdaysArr:(NSArray *)tmpWeekdaysArr
-{
-    
+    _tmpWeekdaysArr[indexPath.row] = [_tmpWeekdaysArr[indexPath.row] integerValue] == 1? @0:@1;
+    [_selectWeekdaysTabelView reloadData];
 }
 
 @end

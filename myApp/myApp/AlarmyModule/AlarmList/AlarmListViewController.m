@@ -30,7 +30,7 @@ static NSString *const AlarmListTableViewCellId = @"AlarmListTableViewCell";
     [self initModelList];
     [self.view addSubview:self.alarmListTableView];
     [self.view addSubview:self.addButton];
-    [[UserAlarmLocalNotification sharedUserAlarmLocalNotification] registerNotification:10];
+//    [[UserAlarmLocalNotification sharedUserAlarmLocalNotification] registerNotification:10];
 }
 
 - (void)initModelList

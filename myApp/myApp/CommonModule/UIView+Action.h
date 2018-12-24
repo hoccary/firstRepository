@@ -9,5 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface UIView (Action)
+//设置点击方法
 - (void)setViewActionWithBlock:(void (^)(void))block ;
+//设置圆角
+- (void)makeCornerWithColor:(UIColor*)color andRadius:(CGFloat)radius;
+
+- (void)dw_popup;
+
+- (void)dw_shadeOff;
 @end

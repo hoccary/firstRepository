@@ -14,4 +14,5 @@
                  labelWidth:(CGFloat)labelWidth;
 + (CGFloat)calHeightForText:(NSString*)text;
 + (NSString *)alarmyListFilePath;
++ (NSString*)convertDateToString:(NSDate*)date;
 @end
