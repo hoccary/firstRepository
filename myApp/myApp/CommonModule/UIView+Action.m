@@ -43,18 +43,16 @@ static char kActionHandlerGestureKey;
     self.layer.masksToBounds = YES;
 }
 
-- (void)dw_popup{
+- (void)dw_popupWithCompletion:(void(^)(BOOL finished))completion{
     self.alpha = 0.5;
     self.transform = CGAffineTransformMakeScale(0.8, 0.8);
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.transform = CGAffineTransformMakeScale(1.03, 1.03);
+        self.transform = CGAffineTransformMakeScale(1.01, 1.01);
         self.alpha = 1;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.05 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-
-        }];
+        } completion:completion];
     }];
 }
 

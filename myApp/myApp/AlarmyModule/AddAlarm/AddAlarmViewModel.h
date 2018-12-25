@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface AddAlarmViewModel : NSObject
-
++ (NSString*)translateWeekdayArrToString:(NSArray*)arr;
 @end

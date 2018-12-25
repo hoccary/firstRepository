@@ -14,7 +14,7 @@
 //设置圆角
 - (void)makeCornerWithColor:(UIColor*)color andRadius:(CGFloat)radius;
 
-- (void)dw_popup;
+- (void)dw_popupWithCompletion:(void(^)(BOOL finished))completion;
 
 - (void)dw_shadeOff;
 @end

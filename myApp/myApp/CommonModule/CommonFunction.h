@@ -15,4 +15,6 @@
 + (CGFloat)calHeightForText:(NSString*)text;
 + (NSString *)alarmyListFilePath;
 + (NSString*)convertDateToString:(NSDate*)date;
++ (UIView*)addHalfTansparentCover:(UIView*)targetView;
++ (void)removeHalfTranparentCover:(UIView *)targetView;
 @end

@@ -80,9 +80,9 @@
     }];
 
     [_repeatSelecter setViewActionWithBlock:^{
+        [CommonFunction addHalfTansparentCover:self.view];
         [self.view addSubview:self.selectWeekdaysTabelView];
-        [self.selectWeekdaysTabelView dw_popup];
-        
+        [self.selectWeekdaysTabelView dw_popupWithCompletion:nil];
     }];
 }
 
@@ -184,8 +184,11 @@
         footCancelBtn.text = @"取消";
         footCancelBtn.textAlignment = NSTextAlignmentCenter;
         footCancelBtn.userInteractionEnabled = YES;
+        
+        //取消按钮的事件
         [footCancelBtn setViewActionWithBlock:^{
             [_selectWeekdaysTabelView dw_shadeOff];
+            [CommonFunction removeHalfTranparentCover:self.view];
         }];
         
         UILabel *footSureBtn = [UILabel new];
@@ -193,8 +196,12 @@
         footSureBtn.frame = CGRectMake(footerView.frame.size.width / 2 + 5, 5, footerView.frame.size.width / 2 - 10, footerView.frame.size.height - 10);
         footSureBtn.textAlignment = NSTextAlignmentCenter;
         footSureBtn.userInteractionEnabled = YES;
+        
+        //确定按钮的事件
         [footSureBtn setViewActionWithBlock:^{
+            _repeatSelecter.text = [AddAlarmViewModel translateWeekdayArrToString:_tmpWeekdaysArr];
             [_selectWeekdaysTabelView dw_shadeOff];
+            [CommonFunction removeHalfTranparentCover:self.view];
         }];
         
         [footerView addSubview:footCancelBtn];
