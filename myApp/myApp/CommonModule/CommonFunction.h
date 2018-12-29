@@ -17,4 +17,5 @@
 + (NSString*)convertDateToString:(NSDate*)date;
 + (UIView*)addHalfTansparentCover:(UIView*)targetView;
 + (void)removeHalfTranparentCover:(UIView *)targetView;
++ (NSInteger)getTheWeekday;
 @end

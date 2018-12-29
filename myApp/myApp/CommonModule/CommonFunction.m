@@ -52,7 +52,7 @@
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     now = [NSDate date];
     comps = [calendar components:unitFlags fromDate:now];
-    return [comps weekday];
+    return [comps weekday] - 1;
 }
 
 + (UIView *)addHalfTansparentCover:(UIView *)targetView
